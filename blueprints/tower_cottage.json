@@ -1,0 +1,6581 @@
+{
+ "name": "tower_cottage",
+ "description": "Medium two-story Tudor cottage with a three-story stone corner tower, porch and chimney",
+ "metadata": {
+  "displayName": "塔楼小筑",
+  "zhNames": [
+   "塔楼小筑",
+   "带塔楼的房子",
+   "塔楼房子",
+   "中等房子"
+  ],
+  "enNames": [
+   "tower cottage",
+   "medium house"
+  ],
+  "style": "tudor_stone_tower",
+  "buildingType": "tower_cottage",
+  "complexityTier": "L4",
+  "floors": 2,
+  "skipScaffolding": true,
+  "roofType": "gabled_stair_roof_with_conical_tower",
+  "rooms": [
+   {
+    "id": "ground_main",
+    "zone": "living_room",
+    "bounds": {
+     "minX": 1,
+     "minY": 1,
+     "minZ": 1,
+     "maxX": 7,
+     "maxY": 3,
+     "maxZ": 5
+    }
+   },
+   {
+    "id": "upper_sleeping",
+    "zone": "bedroom",
+    "bounds": {
+     "minX": 1,
+     "minY": 5,
+     "minZ": 1,
+     "maxX": 7,
+     "maxY": 7,
+     "maxZ": 5
+    }
+   },
+   {
+    "id": "tower_1",
+    "zone": "storage",
+    "bounds": {
+     "minX": 9,
+     "minY": 1,
+     "minZ": -1,
+     "maxX": 11,
+     "maxY": 3,
+     "maxZ": 1
+    }
+   },
+   {
+    "id": "tower_2",
+    "zone": "study",
+    "bounds": {
+     "minX": 9,
+     "minY": 5,
+     "minZ": -1,
+     "maxX": 11,
+     "maxY": 7,
+     "maxZ": 1
+    }
+   },
+   {
+    "id": "tower_3",
+    "zone": "bedroom",
+    "bounds": {
+     "minX": 9,
+     "minY": 9,
+     "minZ": -1,
+     "maxX": 11,
+     "maxY": 11,
+     "maxZ": 1
+    }
+   }
+  ],
+  "stairs": [
+   {
+    "minX": 2,
+    "minY": 1,
+    "minZ": 5,
+    "maxX": 5,
+    "maxY": 4,
+    "maxZ": 5
+   },
+   {
+    "minX": 9,
+    "minY": 1,
+    "minZ": -1,
+    "maxX": 11,
+    "maxY": 3,
+    "maxZ": -1
+   },
+   {
+    "minX": 9,
+    "minY": 5,
+    "minZ": 1,
+    "maxX": 11,
+    "maxY": 7,
+    "maxZ": 1
+   }
+  ],
+  "doorways": [
+   {
+    "x": 2,
+    "y": 1,
+    "z": 0
+   },
+   {
+    "x": 2,
+    "y": 2,
+    "z": 0
+   },
+   {
+    "x": 8,
+    "y": 1,
+    "z": 1
+   },
+   {
+    "x": 8,
+    "y": 2,
+    "z": 1
+   },
+   {
+    "x": 8,
+    "y": 5,
+    "z": 1
+   },
+   {
+    "x": 8,
+    "y": 6,
+    "z": 1
+   }
+  ],
+  "interiorAnchors": [
+   {
+    "role": "bed",
+    "type": "white_bed",
+    "x": 6,
+    "y": 5,
+    "z": 1,
+    "roomId": "upper_sleeping",
+    "zone": "bedroom"
+   },
+   {
+    "role": "bed",
+    "type": "white_bed",
+    "x": 2,
+    "y": 5,
+    "z": 1,
+    "roomId": "upper_sleeping",
+    "zone": "bedroom"
+   },
+   {
+    "role": "bed",
+    "type": "white_bed",
+    "x": 9,
+    "y": 9,
+    "z": -1,
+    "roomId": "tower_3",
+    "zone": "bedroom"
+   },
+   {
+    "role": "chest",
+    "type": "chest",
+    "x": 1,
+    "y": 1,
+    "z": 1,
+    "roomId": "ground_main",
+    "zone": "storage"
+   },
+   {
+    "role": "crafting_table",
+    "type": "crafting_table",
+    "x": 7,
+    "y": 1,
+    "z": 2,
+    "roomId": "ground_main",
+    "zone": "work"
+   },
+   {
+    "role": "furnace",
+    "type": "furnace",
+    "x": 7,
+    "y": 1,
+    "z": 3,
+    "roomId": "ground_main",
+    "zone": "work"
+   }
+  ],
+  "designNotes": "开发设计稿 v1（2026-09-06）。全部平地正方体结构、无悬挑、无红石/漏斗/悬挂灯笼；楼梯全部 straight。"
+ },
+ "origin": {
+  "x": 0,
+  "y": 0,
+  "z": 0
+ },
+ "blocks": [
+  {
+   "x": -1,
+   "y": 0,
+   "z": 3,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "chimney_base"
+  },
+  {
+   "x": 0,
+   "y": 0,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "foundation",
+   "role": "porch"
+  },
+  {
+   "x": 0,
+   "y": 0,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "foundation",
+   "role": "porch"
+  },
+  {
+   "x": 0,
+   "y": 0,
+   "z": 0,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 0,
+   "y": 0,
+   "z": 1,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 0,
+   "y": 0,
+   "z": 2,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 0,
+   "y": 0,
+   "z": 3,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 0,
+   "y": 0,
+   "z": 4,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 0,
+   "y": 0,
+   "z": 5,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 0,
+   "y": 0,
+   "z": 6,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 1,
+   "y": 0,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "foundation",
+   "role": "porch"
+  },
+  {
+   "x": 1,
+   "y": 0,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "foundation",
+   "role": "porch"
+  },
+  {
+   "x": 1,
+   "y": 0,
+   "z": 0,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 1,
+   "y": 0,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 1,
+   "y": 0,
+   "z": 2,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 1,
+   "y": 0,
+   "z": 3,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 1,
+   "y": 0,
+   "z": 4,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 1,
+   "y": 0,
+   "z": 5,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 1,
+   "y": 0,
+   "z": 6,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 2,
+   "y": 0,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "foundation",
+   "role": "porch"
+  },
+  {
+   "x": 2,
+   "y": 0,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "foundation",
+   "role": "porch"
+  },
+  {
+   "x": 2,
+   "y": 0,
+   "z": 0,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 2,
+   "y": 0,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 2,
+   "y": 0,
+   "z": 2,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 2,
+   "y": 0,
+   "z": 3,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 2,
+   "y": 0,
+   "z": 4,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 2,
+   "y": 0,
+   "z": 5,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 2,
+   "y": 0,
+   "z": 6,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 3,
+   "y": 0,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "foundation",
+   "role": "porch"
+  },
+  {
+   "x": 3,
+   "y": 0,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "foundation",
+   "role": "porch"
+  },
+  {
+   "x": 3,
+   "y": 0,
+   "z": 0,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 3,
+   "y": 0,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 3,
+   "y": 0,
+   "z": 2,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 3,
+   "y": 0,
+   "z": 3,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 3,
+   "y": 0,
+   "z": 4,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 3,
+   "y": 0,
+   "z": 5,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 3,
+   "y": 0,
+   "z": 6,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 4,
+   "y": 0,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "foundation",
+   "role": "porch"
+  },
+  {
+   "x": 4,
+   "y": 0,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "foundation",
+   "role": "porch"
+  },
+  {
+   "x": 4,
+   "y": 0,
+   "z": 0,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 4,
+   "y": 0,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 4,
+   "y": 0,
+   "z": 2,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 4,
+   "y": 0,
+   "z": 3,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 4,
+   "y": 0,
+   "z": 4,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 4,
+   "y": 0,
+   "z": 5,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 4,
+   "y": 0,
+   "z": 6,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 5,
+   "y": 0,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "foundation",
+   "role": "porch"
+  },
+  {
+   "x": 5,
+   "y": 0,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "foundation",
+   "role": "porch"
+  },
+  {
+   "x": 5,
+   "y": 0,
+   "z": 0,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 5,
+   "y": 0,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 5,
+   "y": 0,
+   "z": 2,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 5,
+   "y": 0,
+   "z": 3,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 5,
+   "y": 0,
+   "z": 4,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 5,
+   "y": 0,
+   "z": 5,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 5,
+   "y": 0,
+   "z": 6,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 6,
+   "y": 0,
+   "z": 0,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 6,
+   "y": 0,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 6,
+   "y": 0,
+   "z": 2,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 6,
+   "y": 0,
+   "z": 3,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 6,
+   "y": 0,
+   "z": 4,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 6,
+   "y": 0,
+   "z": 5,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 6,
+   "y": 0,
+   "z": 6,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 7,
+   "y": 0,
+   "z": 0,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 7,
+   "y": 0,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 7,
+   "y": 0,
+   "z": 2,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 7,
+   "y": 0,
+   "z": 3,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 7,
+   "y": 0,
+   "z": 4,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 7,
+   "y": 0,
+   "z": 5,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 7,
+   "y": 0,
+   "z": 6,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 8,
+   "y": 0,
+   "z": -1,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 8,
+   "y": 0,
+   "z": 0,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 8,
+   "y": 0,
+   "z": 1,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 8,
+   "y": 0,
+   "z": 2,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 8,
+   "y": 0,
+   "z": 3,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 8,
+   "y": 0,
+   "z": 4,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 8,
+   "y": 0,
+   "z": 5,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 8,
+   "y": 0,
+   "z": 6,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 9,
+   "y": 0,
+   "z": -2,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 9,
+   "y": 0,
+   "z": -1,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 9,
+   "y": 0,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 9,
+   "y": 0,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 9,
+   "y": 0,
+   "z": 2,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 10,
+   "y": 0,
+   "z": -2,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 10,
+   "y": 0,
+   "z": -1,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 10,
+   "y": 0,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 10,
+   "y": 0,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 10,
+   "y": 0,
+   "z": 2,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 11,
+   "y": 0,
+   "z": -2,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 11,
+   "y": 0,
+   "z": -1,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 11,
+   "y": 0,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 11,
+   "y": 0,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "floor"
+  },
+  {
+   "x": 11,
+   "y": 0,
+   "z": 2,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 12,
+   "y": 0,
+   "z": -1,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 12,
+   "y": 0,
+   "z": 0,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": 12,
+   "y": 0,
+   "z": 1,
+   "type": "cobblestone",
+   "phase": "foundation",
+   "role": "foundation"
+  },
+  {
+   "x": -1,
+   "y": 1,
+   "z": 3,
+   "type": "cobblestone",
+   "phase": "wall",
+   "role": "chimney"
+  },
+  {
+   "x": 0,
+   "y": 1,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "porch_pillar"
+  },
+  {
+   "x": 0,
+   "y": 1,
+   "z": -1,
+   "type": "spruce_fence",
+   "phase": "exterior_detail",
+   "role": "porch_rail"
+  },
+  {
+   "x": 0,
+   "y": 1,
+   "z": 0,
+   "type": "spruce_log",
+   "phase": "frame",
+   "role": "corner_post"
+  },
+  {
+   "x": 0,
+   "y": 1,
+   "z": 1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "wall_base"
+  },
+  {
+   "x": 0,
+   "y": 1,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "wall_base"
+  },
+  {
+   "x": 0,
+   "y": 1,
+   "z": 3,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "frame_post"
+  },
+  {
+   "x": 0,
+   "y": 1,
+   "z": 4,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "wall_base"
+  },
+  {
+   "x": 0,
+   "y": 1,
+   "z": 5,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "wall_base"
+  },
+  {
+   "x": 0,
+   "y": 1,
+   "z": 6,
+   "type": "spruce_log",
+   "phase": "frame",
+   "role": "corner_post"
+  },
+  {
+   "x": 1,
+   "y": 1,
+   "z": -2,
+   "type": "spruce_fence",
+   "phase": "exterior_detail",
+   "role": "porch_rail"
+  },
+  {
+   "x": 1,
+   "y": 1,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "wall_base"
+  },
+  {
+   "x": 1,
+   "y": 1,
+   "z": 1,
+   "type": "chest",
+   "phase": "functional_blocks",
+   "role": "chest"
+  },
+  {
+   "x": 1,
+   "y": 1,
+   "z": 2,
+   "type": "chest",
+   "phase": "functional_blocks",
+   "role": "chest"
+  },
+  {
+   "x": 1,
+   "y": 1,
+   "z": 3,
+   "type": "bookshelf",
+   "phase": "functional_blocks",
+   "role": "bookshelf"
+  },
+  {
+   "x": 1,
+   "y": 1,
+   "z": 4,
+   "type": "torch",
+   "phase": "functional_blocks",
+   "role": "torch"
+  },
+  {
+   "x": 1,
+   "y": 1,
+   "z": 6,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "wall_base"
+  },
+  {
+   "x": 2,
+   "y": 1,
+   "z": 0,
+   "type": "spruce_door",
+   "phase": "doors_windows",
+   "role": "door",
+   "states": {
+    "half": "lower",
+    "facing": "south"
+   }
+  },
+  {
+   "x": 2,
+   "y": 1,
+   "z": 5,
+   "type": "spruce_stairs",
+   "phase": "stairs",
+   "role": "interior_stair",
+   "states": {
+    "facing": "east",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 2,
+   "y": 1,
+   "z": 6,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "wall_base"
+  },
+  {
+   "x": 3,
+   "y": 1,
+   "z": -2,
+   "type": "spruce_fence",
+   "phase": "exterior_detail",
+   "role": "porch_rail"
+  },
+  {
+   "x": 3,
+   "y": 1,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "wall_base"
+  },
+  {
+   "x": 3,
+   "y": 1,
+   "z": 6,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "wall_base"
+  },
+  {
+   "x": 4,
+   "y": 1,
+   "z": -2,
+   "type": "spruce_fence",
+   "phase": "exterior_detail",
+   "role": "porch_rail"
+  },
+  {
+   "x": 4,
+   "y": 1,
+   "z": 0,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "frame_post"
+  },
+  {
+   "x": 4,
+   "y": 1,
+   "z": 6,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "frame_post"
+  },
+  {
+   "x": 5,
+   "y": 1,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "porch_pillar"
+  },
+  {
+   "x": 5,
+   "y": 1,
+   "z": -1,
+   "type": "spruce_fence",
+   "phase": "exterior_detail",
+   "role": "porch_rail"
+  },
+  {
+   "x": 5,
+   "y": 1,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "wall_base"
+  },
+  {
+   "x": 5,
+   "y": 1,
+   "z": 6,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "wall_base"
+  },
+  {
+   "x": 6,
+   "y": 1,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "wall_base"
+  },
+  {
+   "x": 6,
+   "y": 1,
+   "z": 6,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "wall_base"
+  },
+  {
+   "x": 7,
+   "y": 1,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "wall_base"
+  },
+  {
+   "x": 7,
+   "y": 1,
+   "z": 2,
+   "type": "crafting_table",
+   "phase": "functional_blocks",
+   "role": "crafting_table"
+  },
+  {
+   "x": 7,
+   "y": 1,
+   "z": 3,
+   "type": "furnace",
+   "phase": "functional_blocks",
+   "role": "furnace",
+   "states": {
+    "facing": "west"
+   }
+  },
+  {
+   "x": 7,
+   "y": 1,
+   "z": 4,
+   "type": "furnace",
+   "phase": "functional_blocks",
+   "role": "furnace",
+   "states": {
+    "facing": "west"
+   }
+  },
+  {
+   "x": 7,
+   "y": 1,
+   "z": 5,
+   "type": "torch",
+   "phase": "functional_blocks",
+   "role": "torch"
+  },
+  {
+   "x": 7,
+   "y": 1,
+   "z": 6,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "wall_base"
+  },
+  {
+   "x": 8,
+   "y": 1,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 1,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "frame",
+   "role": "tower_post"
+  },
+  {
+   "x": 8,
+   "y": 1,
+   "z": 1,
+   "type": "air",
+   "phase": "doors_windows",
+   "role": "doorway"
+  },
+  {
+   "x": 8,
+   "y": 1,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "wall_base"
+  },
+  {
+   "x": 8,
+   "y": 1,
+   "z": 3,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "frame_post"
+  },
+  {
+   "x": 8,
+   "y": 1,
+   "z": 4,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "wall_base"
+  },
+  {
+   "x": 8,
+   "y": 1,
+   "z": 5,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "wall_base"
+  },
+  {
+   "x": 8,
+   "y": 1,
+   "z": 6,
+   "type": "spruce_log",
+   "phase": "frame",
+   "role": "corner_post"
+  },
+  {
+   "x": 9,
+   "y": 1,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 9,
+   "y": 1,
+   "z": -1,
+   "type": "spruce_stairs",
+   "phase": "stairs",
+   "role": "tower_stair",
+   "states": {
+    "facing": "east",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 9,
+   "y": 1,
+   "z": 2,
+   "type": "mossy_stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 10,
+   "y": 1,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "frame",
+   "role": "tower_post"
+  },
+  {
+   "x": 10,
+   "y": 1,
+   "z": 0,
+   "type": "torch",
+   "phase": "functional_blocks",
+   "role": "torch"
+  },
+  {
+   "x": 10,
+   "y": 1,
+   "z": 1,
+   "type": "chest",
+   "phase": "functional_blocks",
+   "role": "chest"
+  },
+  {
+   "x": 10,
+   "y": 1,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "frame",
+   "role": "tower_post"
+  },
+  {
+   "x": 11,
+   "y": 1,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 11,
+   "y": 1,
+   "z": 1,
+   "type": "chest",
+   "phase": "functional_blocks",
+   "role": "chest"
+  },
+  {
+   "x": 11,
+   "y": 1,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 12,
+   "y": 1,
+   "z": -1,
+   "type": "mossy_stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 12,
+   "y": 1,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "frame",
+   "role": "tower_post"
+  },
+  {
+   "x": 12,
+   "y": 1,
+   "z": 1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": -1,
+   "y": 2,
+   "z": 3,
+   "type": "cobblestone",
+   "phase": "wall",
+   "role": "chimney"
+  },
+  {
+   "x": 0,
+   "y": 2,
+   "z": -2,
+   "type": "torch",
+   "phase": "functional_blocks",
+   "role": "porch_torch"
+  },
+  {
+   "x": 0,
+   "y": 2,
+   "z": 0,
+   "type": "spruce_log",
+   "phase": "frame",
+   "role": "corner_post"
+  },
+  {
+   "x": 0,
+   "y": 2,
+   "z": 1,
+   "type": "glass_pane",
+   "phase": "doors_windows",
+   "role": "window"
+  },
+  {
+   "x": 0,
+   "y": 2,
+   "z": 2,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 0,
+   "y": 2,
+   "z": 3,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "frame_post"
+  },
+  {
+   "x": 0,
+   "y": 2,
+   "z": 4,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 0,
+   "y": 2,
+   "z": 5,
+   "type": "glass_pane",
+   "phase": "doors_windows",
+   "role": "window"
+  },
+  {
+   "x": 0,
+   "y": 2,
+   "z": 6,
+   "type": "spruce_log",
+   "phase": "frame",
+   "role": "corner_post"
+  },
+  {
+   "x": 1,
+   "y": 2,
+   "z": 0,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 1,
+   "y": 2,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 2,
+   "y": 2,
+   "z": 0,
+   "type": "spruce_door",
+   "phase": "doors_windows",
+   "role": "door",
+   "states": {
+    "half": "upper",
+    "facing": "south"
+   }
+  },
+  {
+   "x": 2,
+   "y": 2,
+   "z": 6,
+   "type": "glass_pane",
+   "phase": "doors_windows",
+   "role": "window"
+  },
+  {
+   "x": 3,
+   "y": 2,
+   "z": 0,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 3,
+   "y": 2,
+   "z": 5,
+   "type": "spruce_stairs",
+   "phase": "stairs",
+   "role": "interior_stair",
+   "states": {
+    "facing": "east",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 3,
+   "y": 2,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 4,
+   "y": 2,
+   "z": 0,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "frame_post"
+  },
+  {
+   "x": 4,
+   "y": 2,
+   "z": 6,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "frame_post"
+  },
+  {
+   "x": 5,
+   "y": 2,
+   "z": -2,
+   "type": "torch",
+   "phase": "functional_blocks",
+   "role": "porch_torch"
+  },
+  {
+   "x": 5,
+   "y": 2,
+   "z": 0,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 5,
+   "y": 2,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 6,
+   "y": 2,
+   "z": 0,
+   "type": "glass_pane",
+   "phase": "doors_windows",
+   "role": "window"
+  },
+  {
+   "x": 6,
+   "y": 2,
+   "z": 6,
+   "type": "glass_pane",
+   "phase": "doors_windows",
+   "role": "window"
+  },
+  {
+   "x": 7,
+   "y": 2,
+   "z": 0,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 7,
+   "y": 2,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 8,
+   "y": 2,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 2,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "frame",
+   "role": "tower_post"
+  },
+  {
+   "x": 8,
+   "y": 2,
+   "z": 1,
+   "type": "air",
+   "phase": "doors_windows",
+   "role": "doorway"
+  },
+  {
+   "x": 8,
+   "y": 2,
+   "z": 2,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 8,
+   "y": 2,
+   "z": 3,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "frame_post"
+  },
+  {
+   "x": 8,
+   "y": 2,
+   "z": 4,
+   "type": "glass_pane",
+   "phase": "doors_windows",
+   "role": "window"
+  },
+  {
+   "x": 8,
+   "y": 2,
+   "z": 5,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 8,
+   "y": 2,
+   "z": 6,
+   "type": "spruce_log",
+   "phase": "frame",
+   "role": "corner_post"
+  },
+  {
+   "x": 9,
+   "y": 2,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 9,
+   "y": 2,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 10,
+   "y": 2,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "frame",
+   "role": "tower_post"
+  },
+  {
+   "x": 10,
+   "y": 2,
+   "z": -1,
+   "type": "spruce_stairs",
+   "phase": "stairs",
+   "role": "tower_stair",
+   "states": {
+    "facing": "east",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 10,
+   "y": 2,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "frame",
+   "role": "tower_post"
+  },
+  {
+   "x": 11,
+   "y": 2,
+   "z": -2,
+   "type": "glass_pane",
+   "phase": "doors_windows",
+   "role": "window"
+  },
+  {
+   "x": 11,
+   "y": 2,
+   "z": 2,
+   "type": "glass_pane",
+   "phase": "doors_windows",
+   "role": "window"
+  },
+  {
+   "x": 12,
+   "y": 2,
+   "z": -1,
+   "type": "glass_pane",
+   "phase": "doors_windows",
+   "role": "window"
+  },
+  {
+   "x": 12,
+   "y": 2,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "frame",
+   "role": "tower_post"
+  },
+  {
+   "x": 12,
+   "y": 2,
+   "z": 1,
+   "type": "mossy_stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": -1,
+   "y": 3,
+   "z": 3,
+   "type": "cobblestone",
+   "phase": "wall",
+   "role": "chimney"
+  },
+  {
+   "x": 0,
+   "y": 3,
+   "z": 0,
+   "type": "spruce_log",
+   "phase": "frame",
+   "role": "corner_post"
+  },
+  {
+   "x": 0,
+   "y": 3,
+   "z": 1,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 0,
+   "y": 3,
+   "z": 2,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 0,
+   "y": 3,
+   "z": 3,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "frame_post"
+  },
+  {
+   "x": 0,
+   "y": 3,
+   "z": 4,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 0,
+   "y": 3,
+   "z": 5,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 0,
+   "y": 3,
+   "z": 6,
+   "type": "spruce_log",
+   "phase": "frame",
+   "role": "corner_post"
+  },
+  {
+   "x": 1,
+   "y": 3,
+   "z": 0,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 1,
+   "y": 3,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 2,
+   "y": 3,
+   "z": 0,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 2,
+   "y": 3,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 3,
+   "y": 3,
+   "z": 0,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 3,
+   "y": 3,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 4,
+   "y": 3,
+   "z": 0,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "frame_post"
+  },
+  {
+   "x": 4,
+   "y": 3,
+   "z": 5,
+   "type": "spruce_stairs",
+   "phase": "stairs",
+   "role": "interior_stair",
+   "states": {
+    "facing": "east",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 4,
+   "y": 3,
+   "z": 6,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "frame_post"
+  },
+  {
+   "x": 5,
+   "y": 3,
+   "z": 0,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 5,
+   "y": 3,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 6,
+   "y": 3,
+   "z": 0,
+   "type": "glass_pane",
+   "phase": "doors_windows",
+   "role": "window"
+  },
+  {
+   "x": 6,
+   "y": 3,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 7,
+   "y": 3,
+   "z": 0,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 7,
+   "y": 3,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 8,
+   "y": 3,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 3,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "frame",
+   "role": "tower_post"
+  },
+  {
+   "x": 8,
+   "y": 3,
+   "z": 1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 3,
+   "z": 2,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 8,
+   "y": 3,
+   "z": 3,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "frame_post"
+  },
+  {
+   "x": 8,
+   "y": 3,
+   "z": 4,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 8,
+   "y": 3,
+   "z": 5,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 8,
+   "y": 3,
+   "z": 6,
+   "type": "spruce_log",
+   "phase": "frame",
+   "role": "corner_post"
+  },
+  {
+   "x": 9,
+   "y": 3,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 9,
+   "y": 3,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 10,
+   "y": 3,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "frame",
+   "role": "tower_post"
+  },
+  {
+   "x": 10,
+   "y": 3,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "frame",
+   "role": "tower_post"
+  },
+  {
+   "x": 11,
+   "y": 3,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 11,
+   "y": 3,
+   "z": -1,
+   "type": "spruce_stairs",
+   "phase": "stairs",
+   "role": "tower_stair",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 11,
+   "y": 3,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 12,
+   "y": 3,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 12,
+   "y": 3,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "frame",
+   "role": "tower_post"
+  },
+  {
+   "x": 12,
+   "y": 3,
+   "z": 1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": -1,
+   "y": 4,
+   "z": 3,
+   "type": "cobblestone",
+   "phase": "wall",
+   "role": "chimney"
+  },
+  {
+   "x": 0,
+   "y": 4,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 0,
+   "y": 4,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 0,
+   "y": 4,
+   "z": 2,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 0,
+   "y": 4,
+   "z": 3,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 0,
+   "y": 4,
+   "z": 4,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 0,
+   "y": 4,
+   "z": 5,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 0,
+   "y": 4,
+   "z": 6,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 1,
+   "y": 4,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 1,
+   "y": 4,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 1,
+   "y": 4,
+   "z": 2,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 1,
+   "y": 4,
+   "z": 3,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 1,
+   "y": 4,
+   "z": 4,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 1,
+   "y": 4,
+   "z": 5,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 1,
+   "y": 4,
+   "z": 6,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 2,
+   "y": 4,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 2,
+   "y": 4,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 2,
+   "y": 4,
+   "z": 2,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 2,
+   "y": 4,
+   "z": 3,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 2,
+   "y": 4,
+   "z": 4,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 2,
+   "y": 4,
+   "z": 5,
+   "type": "air",
+   "phase": "stairs",
+   "role": "stairwell"
+  },
+  {
+   "x": 2,
+   "y": 4,
+   "z": 6,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 3,
+   "y": 4,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 3,
+   "y": 4,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 3,
+   "y": 4,
+   "z": 2,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 3,
+   "y": 4,
+   "z": 3,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 3,
+   "y": 4,
+   "z": 4,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 3,
+   "y": 4,
+   "z": 5,
+   "type": "air",
+   "phase": "stairs",
+   "role": "stairwell"
+  },
+  {
+   "x": 3,
+   "y": 4,
+   "z": 6,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 4,
+   "y": 4,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 4,
+   "y": 4,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 4,
+   "y": 4,
+   "z": 2,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 4,
+   "y": 4,
+   "z": 3,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 4,
+   "y": 4,
+   "z": 4,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 4,
+   "y": 4,
+   "z": 5,
+   "type": "air",
+   "phase": "stairs",
+   "role": "stairwell"
+  },
+  {
+   "x": 4,
+   "y": 4,
+   "z": 6,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 5,
+   "y": 4,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 5,
+   "y": 4,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 5,
+   "y": 4,
+   "z": 2,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 5,
+   "y": 4,
+   "z": 3,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 5,
+   "y": 4,
+   "z": 4,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 5,
+   "y": 4,
+   "z": 5,
+   "type": "spruce_stairs",
+   "phase": "stairs",
+   "role": "interior_stair",
+   "states": {
+    "facing": "east",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 5,
+   "y": 4,
+   "z": 6,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 6,
+   "y": 4,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 6,
+   "y": 4,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 6,
+   "y": 4,
+   "z": 2,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 6,
+   "y": 4,
+   "z": 3,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 6,
+   "y": 4,
+   "z": 4,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 6,
+   "y": 4,
+   "z": 5,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 6,
+   "y": 4,
+   "z": 6,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 7,
+   "y": 4,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 7,
+   "y": 4,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 7,
+   "y": 4,
+   "z": 2,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 7,
+   "y": 4,
+   "z": 3,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 7,
+   "y": 4,
+   "z": 4,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 7,
+   "y": 4,
+   "z": 5,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 7,
+   "y": 4,
+   "z": 6,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 8,
+   "y": 4,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "floor",
+   "role": "tower_band"
+  },
+  {
+   "x": 8,
+   "y": 4,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "floor",
+   "role": "tower_band"
+  },
+  {
+   "x": 8,
+   "y": 4,
+   "z": 1,
+   "type": "stone_bricks",
+   "phase": "floor",
+   "role": "tower_band"
+  },
+  {
+   "x": 8,
+   "y": 4,
+   "z": 2,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 8,
+   "y": 4,
+   "z": 3,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 8,
+   "y": 4,
+   "z": 4,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 8,
+   "y": 4,
+   "z": 5,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 8,
+   "y": 4,
+   "z": 6,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "second_floor"
+  },
+  {
+   "x": 9,
+   "y": 4,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "floor",
+   "role": "tower_band"
+  },
+  {
+   "x": 9,
+   "y": 4,
+   "z": -1,
+   "type": "air",
+   "phase": "stairs",
+   "role": "stairwell"
+  },
+  {
+   "x": 9,
+   "y": 4,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "tower_floor"
+  },
+  {
+   "x": 9,
+   "y": 4,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "tower_floor"
+  },
+  {
+   "x": 9,
+   "y": 4,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "floor",
+   "role": "tower_band"
+  },
+  {
+   "x": 10,
+   "y": 4,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "floor",
+   "role": "tower_band"
+  },
+  {
+   "x": 10,
+   "y": 4,
+   "z": -1,
+   "type": "air",
+   "phase": "stairs",
+   "role": "stairwell"
+  },
+  {
+   "x": 10,
+   "y": 4,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "tower_floor"
+  },
+  {
+   "x": 10,
+   "y": 4,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "tower_floor"
+  },
+  {
+   "x": 10,
+   "y": 4,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "floor",
+   "role": "tower_band"
+  },
+  {
+   "x": 11,
+   "y": 4,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "floor",
+   "role": "tower_band"
+  },
+  {
+   "x": 11,
+   "y": 4,
+   "z": -1,
+   "type": "air",
+   "phase": "stairs",
+   "role": "stairwell"
+  },
+  {
+   "x": 11,
+   "y": 4,
+   "z": 0,
+   "type": "spruce_stairs",
+   "phase": "stairs",
+   "role": "tower_stair",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 11,
+   "y": 4,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "floor",
+   "role": "tower_floor"
+  },
+  {
+   "x": 11,
+   "y": 4,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "floor",
+   "role": "tower_band"
+  },
+  {
+   "x": 12,
+   "y": 4,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "floor",
+   "role": "tower_band"
+  },
+  {
+   "x": 12,
+   "y": 4,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "floor",
+   "role": "tower_band"
+  },
+  {
+   "x": 12,
+   "y": 4,
+   "z": 1,
+   "type": "stone_bricks",
+   "phase": "floor",
+   "role": "tower_band"
+  },
+  {
+   "x": -1,
+   "y": 5,
+   "z": 3,
+   "type": "cobblestone",
+   "phase": "wall",
+   "role": "chimney"
+  },
+  {
+   "x": 0,
+   "y": 5,
+   "z": 0,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "corner_post"
+  },
+  {
+   "x": 0,
+   "y": 5,
+   "z": 1,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 0,
+   "y": 5,
+   "z": 2,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 0,
+   "y": 5,
+   "z": 3,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "frame_post"
+  },
+  {
+   "x": 0,
+   "y": 5,
+   "z": 4,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 0,
+   "y": 5,
+   "z": 5,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 0,
+   "y": 5,
+   "z": 6,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "corner_post"
+  },
+  {
+   "x": 1,
+   "y": 5,
+   "z": 0,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 1,
+   "y": 5,
+   "z": 5,
+   "type": "torch",
+   "phase": "functional_blocks",
+   "role": "torch"
+  },
+  {
+   "x": 1,
+   "y": 5,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 2,
+   "y": 5,
+   "z": 0,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 2,
+   "y": 5,
+   "z": 1,
+   "type": "white_bed",
+   "phase": "functional_blocks",
+   "role": "bed",
+   "states": {
+    "facing": "south",
+    "part": "foot"
+   }
+  },
+  {
+   "x": 2,
+   "y": 5,
+   "z": 2,
+   "type": "white_bed",
+   "phase": "functional_blocks",
+   "role": "bed",
+   "states": {
+    "facing": "south",
+    "part": "head"
+   }
+  },
+  {
+   "x": 2,
+   "y": 5,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 3,
+   "y": 5,
+   "z": 0,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 3,
+   "y": 5,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 4,
+   "y": 5,
+   "z": 0,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "frame_post"
+  },
+  {
+   "x": 4,
+   "y": 5,
+   "z": 1,
+   "type": "chest",
+   "phase": "functional_blocks",
+   "role": "chest"
+  },
+  {
+   "x": 4,
+   "y": 5,
+   "z": 6,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "frame_post"
+  },
+  {
+   "x": 5,
+   "y": 5,
+   "z": 0,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 5,
+   "y": 5,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 6,
+   "y": 5,
+   "z": 0,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 6,
+   "y": 5,
+   "z": 1,
+   "type": "white_bed",
+   "phase": "functional_blocks",
+   "role": "bed",
+   "states": {
+    "facing": "south",
+    "part": "foot"
+   }
+  },
+  {
+   "x": 6,
+   "y": 5,
+   "z": 2,
+   "type": "white_bed",
+   "phase": "functional_blocks",
+   "role": "bed",
+   "states": {
+    "facing": "south",
+    "part": "head"
+   }
+  },
+  {
+   "x": 6,
+   "y": 5,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 7,
+   "y": 5,
+   "z": 0,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 7,
+   "y": 5,
+   "z": 1,
+   "type": "torch",
+   "phase": "functional_blocks",
+   "role": "torch"
+  },
+  {
+   "x": 7,
+   "y": 5,
+   "z": 4,
+   "type": "bookshelf",
+   "phase": "functional_blocks",
+   "role": "bookshelf"
+  },
+  {
+   "x": 7,
+   "y": 5,
+   "z": 5,
+   "type": "bookshelf",
+   "phase": "functional_blocks",
+   "role": "bookshelf"
+  },
+  {
+   "x": 7,
+   "y": 5,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 8,
+   "y": 5,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 5,
+   "z": 0,
+   "type": "air",
+   "phase": "doors_windows",
+   "role": "doorway"
+  },
+  {
+   "x": 8,
+   "y": 5,
+   "z": 1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 5,
+   "z": 2,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 8,
+   "y": 5,
+   "z": 3,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "frame_post"
+  },
+  {
+   "x": 8,
+   "y": 5,
+   "z": 4,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 8,
+   "y": 5,
+   "z": 5,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 8,
+   "y": 5,
+   "z": 6,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "corner_post"
+  },
+  {
+   "x": 9,
+   "y": 5,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 9,
+   "y": 5,
+   "z": 0,
+   "type": "torch",
+   "phase": "functional_blocks",
+   "role": "torch"
+  },
+  {
+   "x": 9,
+   "y": 5,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "wall",
+   "role": "stair_riser"
+  },
+  {
+   "x": 9,
+   "y": 5,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 10,
+   "y": 5,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 10,
+   "y": 5,
+   "z": 0,
+   "type": "bookshelf",
+   "phase": "functional_blocks",
+   "role": "bookshelf"
+  },
+  {
+   "x": 10,
+   "y": 5,
+   "z": 1,
+   "type": "spruce_stairs",
+   "phase": "stairs",
+   "role": "tower_stair",
+   "states": {
+    "facing": "west",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 10,
+   "y": 5,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 11,
+   "y": 5,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 11,
+   "y": 5,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 12,
+   "y": 5,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 12,
+   "y": 5,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 12,
+   "y": 5,
+   "z": 1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": -1,
+   "y": 6,
+   "z": 3,
+   "type": "cobblestone",
+   "phase": "wall",
+   "role": "chimney"
+  },
+  {
+   "x": 0,
+   "y": 6,
+   "z": 0,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "corner_post"
+  },
+  {
+   "x": 0,
+   "y": 6,
+   "z": 1,
+   "type": "glass_pane",
+   "phase": "doors_windows",
+   "role": "window"
+  },
+  {
+   "x": 0,
+   "y": 6,
+   "z": 2,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 0,
+   "y": 6,
+   "z": 3,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "frame_post"
+  },
+  {
+   "x": 0,
+   "y": 6,
+   "z": 4,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 0,
+   "y": 6,
+   "z": 5,
+   "type": "glass_pane",
+   "phase": "doors_windows",
+   "role": "window"
+  },
+  {
+   "x": 0,
+   "y": 6,
+   "z": 6,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "corner_post"
+  },
+  {
+   "x": 1,
+   "y": 6,
+   "z": 0,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 1,
+   "y": 6,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 2,
+   "y": 6,
+   "z": 0,
+   "type": "glass_pane",
+   "phase": "doors_windows",
+   "role": "window"
+  },
+  {
+   "x": 2,
+   "y": 6,
+   "z": 6,
+   "type": "glass_pane",
+   "phase": "doors_windows",
+   "role": "window"
+  },
+  {
+   "x": 3,
+   "y": 6,
+   "z": 0,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 3,
+   "y": 6,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 4,
+   "y": 6,
+   "z": 0,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "frame_post"
+  },
+  {
+   "x": 4,
+   "y": 6,
+   "z": 6,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "frame_post"
+  },
+  {
+   "x": 5,
+   "y": 6,
+   "z": 0,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 5,
+   "y": 6,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 6,
+   "y": 6,
+   "z": 0,
+   "type": "glass_pane",
+   "phase": "doors_windows",
+   "role": "window"
+  },
+  {
+   "x": 6,
+   "y": 6,
+   "z": 6,
+   "type": "glass_pane",
+   "phase": "doors_windows",
+   "role": "window"
+  },
+  {
+   "x": 7,
+   "y": 6,
+   "z": 0,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 7,
+   "y": 6,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 8,
+   "y": 6,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 6,
+   "z": 0,
+   "type": "air",
+   "phase": "doors_windows",
+   "role": "doorway"
+  },
+  {
+   "x": 8,
+   "y": 6,
+   "z": 1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 6,
+   "z": 2,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 8,
+   "y": 6,
+   "z": 3,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "frame_post"
+  },
+  {
+   "x": 8,
+   "y": 6,
+   "z": 4,
+   "type": "glass_pane",
+   "phase": "doors_windows",
+   "role": "window"
+  },
+  {
+   "x": 8,
+   "y": 6,
+   "z": 5,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 8,
+   "y": 6,
+   "z": 6,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "corner_post"
+  },
+  {
+   "x": 9,
+   "y": 6,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 9,
+   "y": 6,
+   "z": 1,
+   "type": "spruce_stairs",
+   "phase": "stairs",
+   "role": "tower_stair",
+   "states": {
+    "facing": "west",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 9,
+   "y": 6,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 10,
+   "y": 6,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 10,
+   "y": 6,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 11,
+   "y": 6,
+   "z": -2,
+   "type": "glass_pane",
+   "phase": "doors_windows",
+   "role": "window"
+  },
+  {
+   "x": 11,
+   "y": 6,
+   "z": 2,
+   "type": "glass_pane",
+   "phase": "doors_windows",
+   "role": "window"
+  },
+  {
+   "x": 12,
+   "y": 6,
+   "z": -1,
+   "type": "glass_pane",
+   "phase": "doors_windows",
+   "role": "window"
+  },
+  {
+   "x": 12,
+   "y": 6,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 12,
+   "y": 6,
+   "z": 1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": -1,
+   "y": 7,
+   "z": 3,
+   "type": "cobblestone",
+   "phase": "wall",
+   "role": "chimney"
+  },
+  {
+   "x": 0,
+   "y": 7,
+   "z": 0,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "corner_post"
+  },
+  {
+   "x": 0,
+   "y": 7,
+   "z": 1,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 0,
+   "y": 7,
+   "z": 2,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 0,
+   "y": 7,
+   "z": 3,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "frame_post"
+  },
+  {
+   "x": 0,
+   "y": 7,
+   "z": 4,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 0,
+   "y": 7,
+   "z": 5,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 0,
+   "y": 7,
+   "z": 6,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "corner_post"
+  },
+  {
+   "x": 1,
+   "y": 7,
+   "z": 0,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 1,
+   "y": 7,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 2,
+   "y": 7,
+   "z": 0,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 2,
+   "y": 7,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "z": 0,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 3,
+   "y": 7,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 4,
+   "y": 7,
+   "z": 0,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "frame_post"
+  },
+  {
+   "x": 4,
+   "y": 7,
+   "z": 6,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "frame_post"
+  },
+  {
+   "x": 5,
+   "y": 7,
+   "z": 0,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 5,
+   "y": 7,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 6,
+   "y": 7,
+   "z": 0,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 6,
+   "y": 7,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 7,
+   "y": 7,
+   "z": 0,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 7,
+   "y": 7,
+   "z": 6,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 8,
+   "y": 7,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 7,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 7,
+   "z": 1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 7,
+   "z": 2,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 8,
+   "y": 7,
+   "z": 3,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "frame_post"
+  },
+  {
+   "x": 8,
+   "y": 7,
+   "z": 4,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 8,
+   "y": 7,
+   "z": 5,
+   "type": "white_terracotta",
+   "phase": "wall",
+   "role": "wall"
+  },
+  {
+   "x": 8,
+   "y": 7,
+   "z": 6,
+   "type": "spruce_log",
+   "phase": "wall",
+   "role": "corner_post"
+  },
+  {
+   "x": 9,
+   "y": 7,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 9,
+   "y": 7,
+   "z": 0,
+   "type": "spruce_stairs",
+   "phase": "stairs",
+   "role": "tower_stair",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 9,
+   "y": 7,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 10,
+   "y": 7,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 10,
+   "y": 7,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 11,
+   "y": 7,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 11,
+   "y": 7,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 12,
+   "y": 7,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 12,
+   "y": 7,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 12,
+   "y": 7,
+   "z": 1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": -1,
+   "y": 8,
+   "z": 3,
+   "type": "cobblestone",
+   "phase": "wall",
+   "role": "chimney"
+  },
+  {
+   "x": 0,
+   "y": 8,
+   "z": -1,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 0,
+   "y": 8,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 0,
+   "y": 8,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 0,
+   "y": 8,
+   "z": 2,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 0,
+   "y": 8,
+   "z": 3,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 0,
+   "y": 8,
+   "z": 4,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 0,
+   "y": 8,
+   "z": 5,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 0,
+   "y": 8,
+   "z": 6,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 0,
+   "y": 8,
+   "z": 7,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 1,
+   "y": 8,
+   "z": -1,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 1,
+   "y": 8,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 1,
+   "y": 8,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 1,
+   "y": 8,
+   "z": 2,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 1,
+   "y": 8,
+   "z": 3,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 1,
+   "y": 8,
+   "z": 4,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 1,
+   "y": 8,
+   "z": 5,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 1,
+   "y": 8,
+   "z": 6,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 1,
+   "y": 8,
+   "z": 7,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 2,
+   "y": 8,
+   "z": -1,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 2,
+   "y": 8,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 2,
+   "y": 8,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 2,
+   "y": 8,
+   "z": 2,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 2,
+   "y": 8,
+   "z": 3,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 2,
+   "y": 8,
+   "z": 4,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 2,
+   "y": 8,
+   "z": 5,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 2,
+   "y": 8,
+   "z": 6,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 2,
+   "y": 8,
+   "z": 7,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 3,
+   "y": 8,
+   "z": -1,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 3,
+   "y": 8,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 3,
+   "y": 8,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 3,
+   "y": 8,
+   "z": 2,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 3,
+   "y": 8,
+   "z": 3,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 3,
+   "y": 8,
+   "z": 4,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 3,
+   "y": 8,
+   "z": 5,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 3,
+   "y": 8,
+   "z": 6,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 3,
+   "y": 8,
+   "z": 7,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 4,
+   "y": 8,
+   "z": -1,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 4,
+   "y": 8,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 4,
+   "y": 8,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 4,
+   "y": 8,
+   "z": 2,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 4,
+   "y": 8,
+   "z": 3,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 4,
+   "y": 8,
+   "z": 4,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 4,
+   "y": 8,
+   "z": 5,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 4,
+   "y": 8,
+   "z": 6,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 4,
+   "y": 8,
+   "z": 7,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 5,
+   "y": 8,
+   "z": -1,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 5,
+   "y": 8,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 5,
+   "y": 8,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 5,
+   "y": 8,
+   "z": 2,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 5,
+   "y": 8,
+   "z": 3,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 5,
+   "y": 8,
+   "z": 4,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 5,
+   "y": 8,
+   "z": 5,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 5,
+   "y": 8,
+   "z": 6,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 5,
+   "y": 8,
+   "z": 7,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 6,
+   "y": 8,
+   "z": -1,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 6,
+   "y": 8,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 6,
+   "y": 8,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 6,
+   "y": 8,
+   "z": 2,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 6,
+   "y": 8,
+   "z": 3,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 6,
+   "y": 8,
+   "z": 4,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 6,
+   "y": 8,
+   "z": 5,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 6,
+   "y": 8,
+   "z": 6,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 6,
+   "y": 8,
+   "z": 7,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 7,
+   "y": 8,
+   "z": -1,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 7,
+   "y": 8,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 7,
+   "y": 8,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 7,
+   "y": 8,
+   "z": 2,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 7,
+   "y": 8,
+   "z": 3,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 7,
+   "y": 8,
+   "z": 4,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 7,
+   "y": 8,
+   "z": 5,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 7,
+   "y": 8,
+   "z": 6,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 7,
+   "y": 8,
+   "z": 7,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 8,
+   "y": 8,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 8,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 8,
+   "z": 1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 8,
+   "z": 2,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 8,
+   "y": 8,
+   "z": 3,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 8,
+   "y": 8,
+   "z": 4,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 8,
+   "y": 8,
+   "z": 5,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 8,
+   "y": 8,
+   "z": 6,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "roof_ceiling"
+  },
+  {
+   "x": 8,
+   "y": 8,
+   "z": 7,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 9,
+   "y": 8,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 9,
+   "y": 8,
+   "z": -1,
+   "type": "spruce_stairs",
+   "phase": "stairs",
+   "role": "tower_stair",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 9,
+   "y": 8,
+   "z": 0,
+   "type": "air",
+   "phase": "stairs",
+   "role": "stairwell"
+  },
+  {
+   "x": 9,
+   "y": 8,
+   "z": 1,
+   "type": "air",
+   "phase": "stairs",
+   "role": "stairwell"
+  },
+  {
+   "x": 9,
+   "y": 8,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 10,
+   "y": 8,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 10,
+   "y": 8,
+   "z": -1,
+   "type": "spruce_planks",
+   "phase": "wall",
+   "role": "tower_floor"
+  },
+  {
+   "x": 10,
+   "y": 8,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "wall",
+   "role": "tower_floor"
+  },
+  {
+   "x": 10,
+   "y": 8,
+   "z": 1,
+   "type": "air",
+   "phase": "stairs",
+   "role": "stairwell"
+  },
+  {
+   "x": 10,
+   "y": 8,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 11,
+   "y": 8,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 11,
+   "y": 8,
+   "z": -1,
+   "type": "spruce_planks",
+   "phase": "wall",
+   "role": "tower_floor"
+  },
+  {
+   "x": 11,
+   "y": 8,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "wall",
+   "role": "tower_floor"
+  },
+  {
+   "x": 11,
+   "y": 8,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "wall",
+   "role": "tower_floor"
+  },
+  {
+   "x": 11,
+   "y": 8,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 12,
+   "y": 8,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 12,
+   "y": 8,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 12,
+   "y": 8,
+   "z": 1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": -1,
+   "y": 9,
+   "z": 3,
+   "type": "cobblestone",
+   "phase": "wall",
+   "role": "chimney"
+  },
+  {
+   "x": 0,
+   "y": 9,
+   "z": 0,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 0,
+   "y": 9,
+   "z": 1,
+   "type": "white_terracotta",
+   "phase": "roof",
+   "role": "gable_end"
+  },
+  {
+   "x": 0,
+   "y": 9,
+   "z": 2,
+   "type": "white_terracotta",
+   "phase": "roof",
+   "role": "gable_end"
+  },
+  {
+   "x": 0,
+   "y": 9,
+   "z": 3,
+   "type": "spruce_log",
+   "phase": "roof",
+   "role": "gable_end"
+  },
+  {
+   "x": 0,
+   "y": 9,
+   "z": 4,
+   "type": "white_terracotta",
+   "phase": "roof",
+   "role": "gable_end"
+  },
+  {
+   "x": 0,
+   "y": 9,
+   "z": 5,
+   "type": "white_terracotta",
+   "phase": "roof",
+   "role": "gable_end"
+  },
+  {
+   "x": 0,
+   "y": 9,
+   "z": 6,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 1,
+   "y": 9,
+   "z": 0,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 1,
+   "y": 9,
+   "z": 6,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 2,
+   "y": 9,
+   "z": 0,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 2,
+   "y": 9,
+   "z": 6,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 3,
+   "y": 9,
+   "z": 0,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 3,
+   "y": 9,
+   "z": 6,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 4,
+   "y": 9,
+   "z": 0,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 4,
+   "y": 9,
+   "z": 6,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 5,
+   "y": 9,
+   "z": 0,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 5,
+   "y": 9,
+   "z": 6,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 6,
+   "y": 9,
+   "z": 0,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 6,
+   "y": 9,
+   "z": 6,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 7,
+   "y": 9,
+   "z": 0,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 7,
+   "y": 9,
+   "z": 6,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 8,
+   "y": 9,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 9,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 9,
+   "z": 1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 9,
+   "z": 2,
+   "type": "white_terracotta",
+   "phase": "roof",
+   "role": "gable_end"
+  },
+  {
+   "x": 8,
+   "y": 9,
+   "z": 3,
+   "type": "spruce_log",
+   "phase": "roof",
+   "role": "gable_end"
+  },
+  {
+   "x": 8,
+   "y": 9,
+   "z": 4,
+   "type": "white_terracotta",
+   "phase": "roof",
+   "role": "gable_end"
+  },
+  {
+   "x": 8,
+   "y": 9,
+   "z": 5,
+   "type": "white_terracotta",
+   "phase": "roof",
+   "role": "gable_end"
+  },
+  {
+   "x": 8,
+   "y": 9,
+   "z": 6,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 9,
+   "y": 9,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 9,
+   "y": 9,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 10,
+   "y": 9,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 10,
+   "y": 9,
+   "z": 0,
+   "type": "white_bed",
+   "phase": "functional_blocks",
+   "role": "bed",
+   "states": {
+    "facing": "east",
+    "part": "foot"
+   }
+  },
+  {
+   "x": 10,
+   "y": 9,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 11,
+   "y": 9,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 11,
+   "y": 9,
+   "z": -1,
+   "type": "torch",
+   "phase": "functional_blocks",
+   "role": "torch"
+  },
+  {
+   "x": 11,
+   "y": 9,
+   "z": 0,
+   "type": "white_bed",
+   "phase": "functional_blocks",
+   "role": "bed",
+   "states": {
+    "facing": "east",
+    "part": "head"
+   }
+  },
+  {
+   "x": 11,
+   "y": 9,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 12,
+   "y": 9,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 12,
+   "y": 9,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 12,
+   "y": 9,
+   "z": 1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": -1,
+   "y": 10,
+   "z": 3,
+   "type": "cobblestone",
+   "phase": "wall",
+   "role": "chimney"
+  },
+  {
+   "x": 0,
+   "y": 10,
+   "z": 1,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 0,
+   "y": 10,
+   "z": 2,
+   "type": "white_terracotta",
+   "phase": "roof",
+   "role": "gable_end"
+  },
+  {
+   "x": 0,
+   "y": 10,
+   "z": 3,
+   "type": "spruce_log",
+   "phase": "roof",
+   "role": "gable_end"
+  },
+  {
+   "x": 0,
+   "y": 10,
+   "z": 4,
+   "type": "white_terracotta",
+   "phase": "roof",
+   "role": "gable_end"
+  },
+  {
+   "x": 0,
+   "y": 10,
+   "z": 5,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 1,
+   "y": 10,
+   "z": 1,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 1,
+   "y": 10,
+   "z": 5,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 2,
+   "y": 10,
+   "z": 1,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 2,
+   "y": 10,
+   "z": 5,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 3,
+   "y": 10,
+   "z": 1,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 3,
+   "y": 10,
+   "z": 5,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 4,
+   "y": 10,
+   "z": 1,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 4,
+   "y": 10,
+   "z": 5,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 5,
+   "y": 10,
+   "z": 1,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 5,
+   "y": 10,
+   "z": 5,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 6,
+   "y": 10,
+   "z": 1,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 6,
+   "y": 10,
+   "z": 5,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 7,
+   "y": 10,
+   "z": 1,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 7,
+   "y": 10,
+   "z": 5,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 8,
+   "y": 10,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 10,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 10,
+   "z": 1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 10,
+   "z": 2,
+   "type": "white_terracotta",
+   "phase": "roof",
+   "role": "gable_end"
+  },
+  {
+   "x": 8,
+   "y": 10,
+   "z": 3,
+   "type": "spruce_log",
+   "phase": "roof",
+   "role": "gable_end"
+  },
+  {
+   "x": 8,
+   "y": 10,
+   "z": 4,
+   "type": "white_terracotta",
+   "phase": "roof",
+   "role": "gable_end"
+  },
+  {
+   "x": 8,
+   "y": 10,
+   "z": 5,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 9,
+   "y": 10,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 9,
+   "y": 10,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 10,
+   "y": 10,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 10,
+   "y": 10,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 11,
+   "y": 10,
+   "z": -2,
+   "type": "glass_pane",
+   "phase": "doors_windows",
+   "role": "window"
+  },
+  {
+   "x": 11,
+   "y": 10,
+   "z": 2,
+   "type": "glass_pane",
+   "phase": "doors_windows",
+   "role": "window"
+  },
+  {
+   "x": 12,
+   "y": 10,
+   "z": -1,
+   "type": "glass_pane",
+   "phase": "doors_windows",
+   "role": "window"
+  },
+  {
+   "x": 12,
+   "y": 10,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 12,
+   "y": 10,
+   "z": 1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": -1,
+   "y": 11,
+   "z": 3,
+   "type": "cobblestone",
+   "phase": "wall",
+   "role": "chimney"
+  },
+  {
+   "x": 0,
+   "y": 11,
+   "z": 2,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 0,
+   "y": 11,
+   "z": 3,
+   "type": "spruce_log",
+   "phase": "roof",
+   "role": "gable_end"
+  },
+  {
+   "x": 0,
+   "y": 11,
+   "z": 4,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 1,
+   "y": 11,
+   "z": 2,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 1,
+   "y": 11,
+   "z": 4,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 2,
+   "y": 11,
+   "z": 2,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 2,
+   "y": 11,
+   "z": 4,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 3,
+   "y": 11,
+   "z": 2,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 3,
+   "y": 11,
+   "z": 4,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 4,
+   "y": 11,
+   "z": 2,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 4,
+   "y": 11,
+   "z": 4,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 5,
+   "y": 11,
+   "z": 2,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 5,
+   "y": 11,
+   "z": 4,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 6,
+   "y": 11,
+   "z": 2,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 6,
+   "y": 11,
+   "z": 4,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 7,
+   "y": 11,
+   "z": 2,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 7,
+   "y": 11,
+   "z": 4,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 8,
+   "y": 11,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 11,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 11,
+   "z": 1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 11,
+   "z": 2,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 8,
+   "y": 11,
+   "z": 3,
+   "type": "spruce_log",
+   "phase": "roof",
+   "role": "gable_end"
+  },
+  {
+   "x": 8,
+   "y": 11,
+   "z": 4,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "roof_slope",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 9,
+   "y": 11,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 9,
+   "y": 11,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 10,
+   "y": 11,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 10,
+   "y": 11,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 11,
+   "y": 11,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 11,
+   "y": 11,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 12,
+   "y": 11,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 12,
+   "y": 11,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 12,
+   "y": 11,
+   "z": 1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": -1,
+   "y": 12,
+   "z": 3,
+   "type": "cobblestone",
+   "phase": "wall",
+   "role": "chimney"
+  },
+  {
+   "x": 0,
+   "y": 12,
+   "z": 3,
+   "type": "dark_oak_log",
+   "phase": "roof",
+   "role": "roof_ridge",
+   "states": {
+    "axis": "x"
+   }
+  },
+  {
+   "x": 1,
+   "y": 12,
+   "z": 3,
+   "type": "dark_oak_log",
+   "phase": "roof",
+   "role": "roof_ridge",
+   "states": {
+    "axis": "x"
+   }
+  },
+  {
+   "x": 2,
+   "y": 12,
+   "z": 3,
+   "type": "dark_oak_log",
+   "phase": "roof",
+   "role": "roof_ridge",
+   "states": {
+    "axis": "x"
+   }
+  },
+  {
+   "x": 3,
+   "y": 12,
+   "z": 3,
+   "type": "dark_oak_log",
+   "phase": "roof",
+   "role": "roof_ridge",
+   "states": {
+    "axis": "x"
+   }
+  },
+  {
+   "x": 4,
+   "y": 12,
+   "z": 3,
+   "type": "dark_oak_log",
+   "phase": "roof",
+   "role": "roof_ridge",
+   "states": {
+    "axis": "x"
+   }
+  },
+  {
+   "x": 5,
+   "y": 12,
+   "z": 3,
+   "type": "dark_oak_log",
+   "phase": "roof",
+   "role": "roof_ridge",
+   "states": {
+    "axis": "x"
+   }
+  },
+  {
+   "x": 6,
+   "y": 12,
+   "z": 3,
+   "type": "dark_oak_log",
+   "phase": "roof",
+   "role": "roof_ridge",
+   "states": {
+    "axis": "x"
+   }
+  },
+  {
+   "x": 7,
+   "y": 12,
+   "z": 3,
+   "type": "dark_oak_log",
+   "phase": "roof",
+   "role": "roof_ridge",
+   "states": {
+    "axis": "x"
+   }
+  },
+  {
+   "x": 8,
+   "y": 12,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 12,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 12,
+   "z": 1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 8,
+   "y": 12,
+   "z": 3,
+   "type": "dark_oak_log",
+   "phase": "roof",
+   "role": "roof_ridge",
+   "states": {
+    "axis": "x"
+   }
+  },
+  {
+   "x": 9,
+   "y": 12,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 9,
+   "y": 12,
+   "z": -1,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "tower_ceiling"
+  },
+  {
+   "x": 9,
+   "y": 12,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "tower_ceiling"
+  },
+  {
+   "x": 9,
+   "y": 12,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "tower_ceiling"
+  },
+  {
+   "x": 9,
+   "y": 12,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 10,
+   "y": 12,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 10,
+   "y": 12,
+   "z": -1,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "tower_ceiling"
+  },
+  {
+   "x": 10,
+   "y": 12,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "tower_ceiling"
+  },
+  {
+   "x": 10,
+   "y": 12,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "tower_ceiling"
+  },
+  {
+   "x": 10,
+   "y": 12,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 11,
+   "y": 12,
+   "z": -2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 11,
+   "y": 12,
+   "z": -1,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "tower_ceiling"
+  },
+  {
+   "x": 11,
+   "y": 12,
+   "z": 0,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "tower_ceiling"
+  },
+  {
+   "x": 11,
+   "y": 12,
+   "z": 1,
+   "type": "spruce_planks",
+   "phase": "roof",
+   "role": "tower_ceiling"
+  },
+  {
+   "x": 11,
+   "y": 12,
+   "z": 2,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 12,
+   "y": 12,
+   "z": -1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 12,
+   "y": 12,
+   "z": 0,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": 12,
+   "y": 12,
+   "z": 1,
+   "type": "stone_bricks",
+   "phase": "wall",
+   "role": "tower_wall"
+  },
+  {
+   "x": -1,
+   "y": 13,
+   "z": 3,
+   "type": "cobblestone",
+   "phase": "wall",
+   "role": "chimney"
+  },
+  {
+   "x": 8,
+   "y": 13,
+   "z": -1,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "tower_roof",
+   "states": {
+    "facing": "east",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 8,
+   "y": 13,
+   "z": 0,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "tower_roof",
+   "states": {
+    "facing": "east",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 8,
+   "y": 13,
+   "z": 1,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "tower_roof",
+   "states": {
+    "facing": "east",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 9,
+   "y": 13,
+   "z": -2,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "tower_roof",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 9,
+   "y": 13,
+   "z": -1,
+   "type": "dark_oak_planks",
+   "phase": "roof",
+   "role": "tower_roof"
+  },
+  {
+   "x": 9,
+   "y": 13,
+   "z": 0,
+   "type": "dark_oak_planks",
+   "phase": "roof",
+   "role": "tower_roof"
+  },
+  {
+   "x": 9,
+   "y": 13,
+   "z": 1,
+   "type": "dark_oak_planks",
+   "phase": "roof",
+   "role": "tower_roof"
+  },
+  {
+   "x": 9,
+   "y": 13,
+   "z": 2,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "tower_roof",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 10,
+   "y": 13,
+   "z": -2,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "tower_roof",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 10,
+   "y": 13,
+   "z": -1,
+   "type": "dark_oak_planks",
+   "phase": "roof",
+   "role": "tower_roof"
+  },
+  {
+   "x": 10,
+   "y": 13,
+   "z": 0,
+   "type": "dark_oak_planks",
+   "phase": "roof",
+   "role": "tower_roof"
+  },
+  {
+   "x": 10,
+   "y": 13,
+   "z": 1,
+   "type": "dark_oak_planks",
+   "phase": "roof",
+   "role": "tower_roof"
+  },
+  {
+   "x": 10,
+   "y": 13,
+   "z": 2,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "tower_roof",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 11,
+   "y": 13,
+   "z": -2,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "tower_roof",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 11,
+   "y": 13,
+   "z": -1,
+   "type": "dark_oak_planks",
+   "phase": "roof",
+   "role": "tower_roof"
+  },
+  {
+   "x": 11,
+   "y": 13,
+   "z": 0,
+   "type": "dark_oak_planks",
+   "phase": "roof",
+   "role": "tower_roof"
+  },
+  {
+   "x": 11,
+   "y": 13,
+   "z": 1,
+   "type": "dark_oak_planks",
+   "phase": "roof",
+   "role": "tower_roof"
+  },
+  {
+   "x": 11,
+   "y": 13,
+   "z": 2,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "tower_roof",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 12,
+   "y": 13,
+   "z": -1,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "tower_roof",
+   "states": {
+    "facing": "west",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 12,
+   "y": 13,
+   "z": 0,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "tower_roof",
+   "states": {
+    "facing": "west",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 12,
+   "y": 13,
+   "z": 1,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "tower_roof",
+   "states": {
+    "facing": "west",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 9,
+   "y": 14,
+   "z": -1,
+   "type": "dark_oak_planks",
+   "phase": "roof",
+   "role": "tower_roof"
+  },
+  {
+   "x": 9,
+   "y": 14,
+   "z": 0,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "tower_roof",
+   "states": {
+    "facing": "east",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 9,
+   "y": 14,
+   "z": 1,
+   "type": "dark_oak_planks",
+   "phase": "roof",
+   "role": "tower_roof"
+  },
+  {
+   "x": 10,
+   "y": 14,
+   "z": -1,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "tower_roof",
+   "states": {
+    "facing": "south",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 10,
+   "y": 14,
+   "z": 0,
+   "type": "dark_oak_planks",
+   "phase": "roof",
+   "role": "tower_roof"
+  },
+  {
+   "x": 10,
+   "y": 14,
+   "z": 1,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "tower_roof",
+   "states": {
+    "facing": "north",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 11,
+   "y": 14,
+   "z": -1,
+   "type": "dark_oak_planks",
+   "phase": "roof",
+   "role": "tower_roof"
+  },
+  {
+   "x": 11,
+   "y": 14,
+   "z": 0,
+   "type": "dark_oak_stairs",
+   "phase": "roof",
+   "role": "tower_roof",
+   "states": {
+    "facing": "west",
+    "half": "bottom",
+    "shape": "straight"
+   }
+  },
+  {
+   "x": 11,
+   "y": 14,
+   "z": 1,
+   "type": "dark_oak_planks",
+   "phase": "roof",
+   "role": "tower_roof"
+  },
+  {
+   "x": 10,
+   "y": 15,
+   "z": 0,
+   "type": "dark_oak_log",
+   "phase": "roof",
+   "role": "tower_spire"
+  },
+  {
+   "x": 10,
+   "y": 16,
+   "z": 0,
+   "type": "torch",
+   "phase": "functional_blocks",
+   "role": "spire_torch"
+  }
+ ]
+}

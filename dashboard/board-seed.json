@@ -1,0 +1,292 @@
+{
+  "title": "林夏 · Minecraft AI 伙伴",
+  "subtitle": "建筑系统完善 + 全链路一体化",
+  "updatedAt": null,
+  "note": "任务清单来自 2026-08-30 CC 第一轮只读核查（docs/CLAUDE_ROUND1_REPORT.md）。「依据」写的是这条结论从哪来的，写「未核实」的表示还没人确认过。全部可以在网页上直接改。",
+  "groups": [
+    {
+      "id": "g-p0",
+      "name": "眼下挡路的（建造验收过不了）",
+      "desc": "这五条不解决，建造验收拿不到一个诚实的通过。B-05 需要你拍板。",
+      "tasks": [
+        {
+          "id": "b01",
+          "name": "B-01　机器人挑站位时，不看那地方走不走得到",
+          "status": "todo",
+          "priority": "P0",
+          "note": "它只按直线距离挑离目标最近的落脚点。这次目标旁边正好是 3 格高的坡，它挑了坡下面直线最近的点，结果得绕大半座山才过得去 —— 15 秒超时，换下一个，还在坡下，又超时，任务直接判死。这是验收失败的唯一直接原因，也是交接文档里那条「在封闭房子里干活却站到屋外」的同一个根。",
+          "evidence": "actions/build.js:5957 · 日志 [BUILD_STANCE_CANDIDATES] 9 个候选全在 y=62"
+        },
+        {
+          "id": "b02",
+          "name": "B-02　移动超时写死 15 秒，跟实际要走多远无关",
+          "status": "todo",
+          "priority": "P0",
+          "note": "不管是走 3 格还是绕 70 格，都只给 15 秒。仓库里其实已经有一个按距离算时间的现成模块，只是建造流程没调用它。改动很小，和 B-01 一起做最划算。",
+          "evidence": "actions/build.js:7113-7127 · utils/movement-timeout.js 未被调用"
+        },
+        {
+          "id": "b03",
+          "name": "B-03　五千步里错一步，整个任务立刻判死",
+          "status": "todo",
+          "priority": "P0",
+          "note": "盖一栋房子有四五千个动作，中间任何一个失败，整活就结束了 —— 哪怕那一步其实可以先跳过、待会儿再补。对动辄几小时的建造来说这是致命的，也是连续游玩体验最大的破坏源。B-01/B-02 修好后，下一个失败点还会以同样方式杀死任务。",
+          "evidence": "systems/building-system.js:1791-1800 · tasks/build-task.js:82-85"
+        },
+        {
+          "id": "b04",
+          "name": "B-04　草方块要 166 个，只给了 83 个，它也不会自己去弄",
+          "status": "todo",
+          "priority": "P0",
+          "note": "这份社区图纸把山体本身也算进了建筑，需要大量泥土和草方块。草方块在生存模式下必须精准采集，机器人没有获取途径，材料替换策略也只换掉了其中 16 个。修好上面三条之后，这是必然撞上的下一堵墙。",
+          "evidence": "日志 missingMaterials grass_block 需 166 有 83"
+        },
+        {
+          "id": "b05",
+          "name": "B-05　验收只给 90 分钟，系统自己估要 4 到 13 小时【需要你拍板】",
+          "status": "todo",
+          "priority": "P0",
+          "note": "选中的图纸有 4431 块、4813 个动作，实测速度 24 步/分钟，算下来约 200 分钟。而验收的时限是 90 分钟。也就是说上面四条全修好，这一关照样过不了 —— 不是标准太严，是这道题本身出得太大。CC 给了三条路，建议走第二条：把这一关换成一个规模小一点的建筑（1000-1500 块），让它恢复成天天能跑的关卡；那栋 4431 块的山顶别墅单独立成一个「长跑」关卡。",
+          "evidence": "acceptance/cases/building.acceptance.js:38 · 日志 [BUILD_CONSTRUCTION_ESTIMATE] minutes=241-771"
+        }
+      ]
+    },
+    {
+      "id": "g-chain",
+      "name": "一体化：让它自己把活干完",
+      "desc": "你要的「说一句话 → 自己算缺料 → 去采 → 去合成 → 回来盖 → 自己验收」，断在这六个点上。",
+      "tasks": [
+        {
+          "id": "b06",
+          "name": "B-06　缺材料时，它不会自己去挖去砍",
+          "status": "todo",
+          "priority": "P1",
+          "note": "备料只会干三件事：翻背包、试着合成、去箱子拿。都拿不到就直接报「材料不够」停在那。历史上那两栋房子之所以能全自动备齐材料，是靠人另外写了脚本在旁边推，不是它自己走通的。这是整条链最核心的缺口。",
+          "evidence": "systems/AutoPreparationSystem.js:290-403"
+        },
+        {
+          "id": "b07",
+          "name": "B-07　熔炼功能写好了，就是没接到建造上",
+          "status": "todo",
+          "priority": "P1",
+          "note": "熔炼模块 795 行、烧制任务都是现成的，但建造备料的路径上没有任何地方会去调用它。之前卡在「差 1 个铁栏杆」好几轮，就是这个缺口。和 B-06 是同一处改动，一起做成本更低。",
+          "evidence": "systems/SmeltingSystem.js 存在但建造路径不调用"
+        },
+        {
+          "id": "b08",
+          "name": "B-08　规划层不把「盖房子」拆成备料步骤",
+          "status": "todo",
+          "priority": "P1",
+          "note": "换成「做把铁镐」它会老老实实拆成：挖矿 → 熔炼 → 合成。但换成「盖房子」，它只产出一个「盖」，中间什么都不想。所以开工前根本不知道缺什么。",
+          "evidence": "ai/planning-system.js:236-239"
+        },
+        {
+          "id": "b09",
+          "name": "B-09　盖到一半失败了，不会自己接着盖",
+          "status": "todo",
+          "priority": "P1",
+          "note": "好消息：底层的「对账式续建」是好的，08-01 那次还真机验证过 —— 进程重启后它认出了原来的工地，已完成 322 块、待建 4246 块，接着干。问题是触发它需要玩家再开口说一次。你要的「中途掉线能接着盖」，缺的是自动触发这一层。",
+          "evidence": "ai/plan-executor.js:70-71 · 日志 [BUILDING_RUN_DECISION] resume"
+        },
+        {
+          "id": "b10",
+          "name": "B-10　规模预算形同虚设，选中了超标 8.9 倍的建筑",
+          "status": "todo",
+          "priority": "P1",
+          "note": "系统本来有「最多 500 块、占地 9×9」的预算限制，但玩家直接说「盖个现代别墅」时，预算检查被跳过了，等图纸选完才发现超标，那时只会发个警告。结果选中一个 4431 块、占地 35×34 的庞然大物。这是规模失控的上游原因，和 B-05 相关。",
+          "evidence": "systems/blueprint-selector.js:37-39"
+        },
+        {
+          "id": "b11",
+          "name": "B-11　在封闭房子里干活，还是会优先站到屋外",
+          "status": "todo",
+          "priority": "P1",
+          "note": "交接文档 2026-07-04 记的老毛病，代码里还在。和 B-01 同根，B-01 修好后可能自动缓解，但需要单独确认。",
+          "evidence": "systems/building-system.js:6313-6317"
+        },
+        {
+          "id": "b12",
+          "name": "B-12　另一个建造关卡的状态没人知道",
+          "status": "todo",
+          "priority": "P1",
+          "note": "08-01 那次只跑了一关。另一关自 6 月 27 日之后就再没留下过任何记录。建议在动手改代码之前先跑一次拿个基线，否则改完了也不知道有没有把别的地方弄坏。零代码工作量。",
+          "evidence": "acceptance/reports/latest-report.json results 只有 1 条"
+        }
+      ]
+    },
+    {
+      "id": "g-p2",
+      "name": "不挡路，但会持续误导人",
+      "desc": "这些不影响功能，影响的是「看日志的人会不会被带偏」。",
+      "tasks": [
+        {
+          "id": "b13",
+          "name": "B-13　三个检查一直报「不通过」，却列不出任何问题",
+          "status": "todo",
+          "priority": "P2",
+          "note": "风格、立面、布局三个检查在导入社区图纸时会被跳过，但仍然输出「未通过」且违规项是空的。看日志的人会以为真的出错了。纯噪音，但会持续误导排查。",
+          "evidence": "日志 [BUILD_STYLE_GRAMMAR] ok=false violations=[]"
+        },
+        {
+          "id": "b14",
+          "name": "B-14　主测试漏跑了两个测试文件",
+          "status": "todo",
+          "priority": "P2",
+          "note": "其中一个是「已建成建筑保护」—— 防止机器人拆掉自己盖的房子，属于硬安全约束，不该漏在主回归之外。改一行的事。",
+          "evidence": "package.json test 脚本含 38 个文件，缺 protected-buildings"
+        },
+        {
+          "id": "b15",
+          "name": "B-15　16 个写到一半的残留文件",
+          "status": "todo",
+          "priority": "P2",
+          "note": "约 41 MB，堆在 data/memory 下。CC 判断目前无害，但会掩盖真正的写入异常。要先弄清是崩溃留下的还是清理逻辑漏了，再清。",
+          "evidence": "data/memory/*.tmp-*"
+        },
+        {
+          "id": "b16",
+          "name": "B-16　交接文档和待决清单已经过期",
+          "status": "todo",
+          "priority": "P2",
+          "note": "这轮差点因此把一个早已修好的功能排进最高优先级。建议：待决清单改成每次启动重建，交接文档补上 7 月底那 27 次提交的摘要。改动小，但对以后每一轮都有复利。",
+          "evidence": "docs/CODEX_BUILDING_HANDOFF.md · docs/decision-needed.md"
+        }
+      ]
+    },
+    {
+      "id": "g-unverified",
+      "name": "我提出的，还没人核实",
+      "desc": "这条是我扫文件时发现的，CC 这轮没专门查，先挂着。",
+      "tasks": [
+        {
+          "id": "x01",
+          "name": "施工记录文件已经涨到 90 MB，怀疑在拖慢速度",
+          "status": "todo",
+          "priority": "P1",
+          "note": "机器人每完成一个动作，都要把这 90 MB 整个重写一遍。CC 实测速度是 24 步/分钟（约 2.5 秒一步）—— 对于「放一块砖」来说这慢得可疑。值得测一下这个大文件占了其中多少时间。如果确实是，那 B-05 那道「时间不够」的题会自己缓解一大半。",
+          "evidence": "data/memory/construction-runs.json（我发现的）· 24 步/分钟（CC 实测）"
+        }
+      ]
+    },
+    {
+      "id": "g-done",
+      "name": "已经做好的（不用操心）",
+      "collapsed": true,
+      "desc": "这些已经验证过能用了，列在这里是为了让你知道钱花在哪儿了。",
+      "tasks": [
+        {
+          "id": "d01",
+          "name": "设计图 → 编译 → 施工 → 对照验收　主链路",
+          "status": "done",
+          "priority": "—",
+          "note": "整套骨架搭好并在用。这是项目最扎实的一块。",
+          "evidence": "docs/CODEX_BUILDING_HANDOFF.md"
+        },
+        {
+          "id": "d02",
+          "name": "翻新已建成的房子（拆旧建新）",
+          "status": "done",
+          "priority": "—",
+          "note": "2026-07-04 真机跑通：189 步全部核对无误，纯生存模式，零作弊指令，零手工补砖。",
+          "evidence": "docs/CODEX_BUILDING_HANDOFF.md · 2026-07-04"
+        },
+        {
+          "id": "d03",
+          "name": "对账式续建（盖一半重启能接上）",
+          "status": "done",
+          "priority": "—",
+          "note": "08-01 真机验证过：进程重启后认出原工地，已完成 322 块、待建 4246 块，接着干。缺的只是自动触发（见 B-09）。",
+          "evidence": "日志 [BUILD_CONSTRUCTION_RUN] mode=resume"
+        },
+        {
+          "id": "d04",
+          "name": "认得门、会开门的寻路",
+          "status": "done",
+          "priority": "—",
+          "note": "交接文档说这个「一直缺失」，其实同一天就修好了，只是没人回头改文档。这轮差点因此白干一场。",
+          "evidence": "提交 cc9a39db · actions/move.js:87-101 · 有专门测试"
+        },
+        {
+          "id": "d05",
+          "name": "盖完自己验收 + 归档",
+          "status": "done",
+          "priority": "—",
+          "note": "逐块对照图纸、宜居性检查、存档，都已实现。",
+          "evidence": "systems/building-system.js:2841-2903"
+        },
+        {
+          "id": "d06",
+          "name": "中文口令能听懂",
+          "status": "done",
+          "priority": "—",
+          "note": "「给我盖个两层木屋」能正确识别成对应图纸。代码路径已读通，未做真机复现。",
+          "evidence": "ai/intent-parser.js:1024-1027（合理推断）"
+        },
+        {
+          "id": "d07",
+          "name": "建成的房子受保护，不会被自己拆掉",
+          "status": "done",
+          "priority": "—",
+          "note": "已建成建筑进保护名册，挖到会被硬拦下。",
+          "evidence": "systems/protected-buildings.js"
+        },
+        {
+          "id": "d08",
+          "name": "跟随：听话跟上、听话停下",
+          "status": "done",
+          "priority": "—",
+          "note": "真机验收通过过。",
+          "evidence": "workflow/reports/handoff-summary.md"
+        },
+        {
+          "id": "d09",
+          "name": "语音输入 / 语音说话 / 五套人设 / 主动搭话",
+          "status": "done",
+          "priority": "—",
+          "note": "陪伴感的部分都能用了。语音需要先装 SoX 并填密钥；主动搭话每 4~6 分钟一次，可关。",
+          "evidence": "README.md · asr.js · tts.js · personas/"
+        },
+        {
+          "id": "d10",
+          "name": "38 个自动化测试全部通过",
+          "status": "done",
+          "priority": "—",
+          "note": "CC 这轮跑过，38/38 全绿。注意还漏了两个没进主测试（见 B-14）。",
+          "evidence": "npm test 退出码 0"
+        }
+      ]
+    },
+    {
+      "id": "g-later",
+      "name": "非主线（等建筑告一段落）",
+      "collapsed": true,
+      "desc": "代码都在，测试也有，只是最近的真机状态没人核实。",
+      "tasks": [
+        {
+          "id": "o01",
+          "name": "农业：收完自动补种",
+          "status": "hold",
+          "priority": "P2",
+          "note": "上次卡在测试环境里没有成熟的小麦，不是功能本身坏了。",
+          "evidence": "workflow/reports/handoff-summary.md"
+        },
+        {
+          "id": "o02",
+          "name": "储物：从箱子取指定数量",
+          "status": "hold",
+          "priority": "P2",
+          "note": "同上，卡在测试环境没摆好箱子。",
+          "evidence": "workflow/reports/handoff-summary.md"
+        },
+        {
+          "id": "o03",
+          "name": "战斗 / 探索 / 生存 / 合成 / 采矿",
+          "status": "todo",
+          "priority": "P2",
+          "note": "代码和测试都在，最近一次真机状态没人核实过。等主线告一段落统一过一遍。",
+          "evidence": "未核实"
+        }
+      ]
+    }
+  ]
+}

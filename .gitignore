@@ -1,0 +1,18 @@
+node_modules/
+.env
+.env.*
+logs/
+*.log
+.DS_Store
+.vscode/
+.cache/
+dist/
+build/
+coverage/
+acceptance/reports/latest-audit-ledger.json
+acceptance/reports/latest-audit-ledger.md
+# Construction ledger sidecars (logistics round 8): one file per terminal run
+# plus the pre-migration backup. Generated next to the untracked
+# data/memory/construction-runs.json, never committed.
+data/memory/construction-runs-archive/
+data/memory/construction-runs.pre-archive.json

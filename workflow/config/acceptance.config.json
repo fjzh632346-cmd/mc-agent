@@ -1,0 +1,100 @@
+{
+  "defaultProject": "minecraft",
+  "reportPath": "acceptance/reports/latest-report.md",
+  "jsonReportPath": "acceptance/reports/latest-report.json",
+  "legacyReportPath": "logs/acceptance-report.md",
+  "projects": {
+    "minecraft": {
+      "adapter": "acceptance/adapters/minecraft.adapter.js",
+      "cases": [
+        "acceptance/cases/following.acceptance.js",
+        "acceptance/cases/farming.acceptance.js",
+        "acceptance/cases/crafting.acceptance.js",
+        "acceptance/cases/combat.acceptance.js",
+        "acceptance/cases/mining.acceptance.js",
+        "acceptance/cases/building.acceptance.js",
+        "acceptance/cases/storage.acceptance.js"
+      ],
+      "minecraft": {
+        "host": "localhost",
+        "portEnv": "MC_PORT",
+        "version": "1.20.1",
+        "auth": "offline",
+        "testPlayerUsernameEnv": "ACCEPTANCE_TEST_USERNAME",
+        "testPlayerUsernameDefault": "accept_tester",
+        "aiBotUsernameEnv": "ACCEPTANCE_AI_USERNAME",
+        "aiBotUsernameDefault": "LinXia",
+        "logPath": "logs/bot-current.log",
+        "startBot": false,
+        "botStartCommand": "node bot.js",
+        "fixture": {
+          "allowCommandFixturesEnv": "ACCEPTANCE_ALLOW_COMMAND_FIXTURES",
+          "setupRadius": 6,
+          "manualPreparation": {
+            "following": [
+              "Ensure the AI companion bot has joined the same server.",
+              "Set ACCEPTANCE_AI_USERNAME to the exact AI companion username.",
+              "Move the AI companion close enough to the acceptance test player to be visible."
+            ],
+            "farming": [
+              "Within 5 blocks of the acceptance test player, prepare at least 2 mature wheat crops.",
+              "Prepare plantable farmland for replanting.",
+              "Give the AI companion wheat_seeds or prepare a nearby accessible chest containing wheat_seeds."
+            ],
+            "storage": [
+              "Within 5 blocks of the acceptance test player, place one accessible chest or barrel.",
+              "Put at least 10 wheat_seeds in that chest.",
+              "Make sure the AI companion can path to and open the chest."
+            ],
+            "combat": [
+              "Ensure the AI companion bot has joined the same server.",
+              "Allow command fixtures so the acceptance player can clear/give weapons and summon a controlled zombie.",
+              "Keep LinXia close enough to the acceptance player for debug_status and entity visibility."
+            ]
+          }
+        },
+        "follow": {
+          "startWaitMs": 4000,
+          "moveDistance": 8,
+          "followObserveMs": 10000,
+          "stopWaitMs": 4000,
+          "stopObserveMs": 6000,
+          "maxFollowDistance": 5,
+          "minStoppedDistance": 5
+        },
+        "farming": {
+          "command": "帮我收一下成熟的小麦，收完补种",
+          "timeoutMs": 45000,
+          "scanRadius": 16,
+          "taskScanRadius": 12,
+          "minMatureWheatForBatchCheck": 2
+        },
+        "storage": {
+          "command": "从箱子里拿点种子",
+          "timeoutMs": 35000,
+          "scanRadius": 16,
+          "expectedLooseCountMin": 5,
+          "expectedLooseCountMax": 10
+        },
+        "crafting": {
+          "command": "做木棍",
+          "timeoutMs": 35000,
+          "scanRadius": 16
+        },
+        "mining": {
+          "timeoutMs": 70000,
+          "scanRadius": 16
+        },
+        "building": {
+          "command": "\u5efa\u4e2a\u5c0f\u5c4b",
+          "timeoutMs": 90000,
+          "scanRadius": 18
+        },
+        "combat": {
+          "timeoutMs": 45000,
+          "scanRadius": 16
+        }
+      }
+    }
+  }
+}

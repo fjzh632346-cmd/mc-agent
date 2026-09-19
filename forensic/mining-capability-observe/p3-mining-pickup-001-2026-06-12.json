@@ -1,0 +1,173 @@
+{
+  "id": "P3-MINING-PICKUP-001",
+  "createdAt": "2026-06-12T07:55:00.000Z",
+  "verificationLevel": "game_observed",
+  "denominator": "mining-capability-observe",
+  "countsTowardStrongPass": false,
+  "countsTowardUniverse44": false,
+  "countsTowardStorageStrong5": false,
+  "notMining11Forensic": true,
+  "judgment": "game_passed_candidate",
+  "scopeNote": "This evidence records only the targeted mining pickup behavior for command '挖3个铁矿'. The full mining acceptance suite was not completed because the outer command timed out during a later scenario.",
+  "source": {
+    "logPath": "logs/bot-current.log",
+    "runStartedAt": "2026-06-12T07:44:05.153Z",
+    "targetScenarioWindow": {
+      "start": "2026-06-12T07:46:44.888Z",
+      "end": "2026-06-12T07:46:55.404Z"
+    },
+    "acceptanceCommand": "npm.cmd run acceptance:minecraft -- --cases=mining",
+    "acceptanceRunStatus": "partial_timeout_after_target_scenario",
+    "latestReportStatus": "stale_blocked_report_from_prior_attempt"
+  },
+  "startupEvidence": {
+    "serverFound": {
+      "time": "2026-06-12T07:44:08.534Z",
+      "line": "找到 MC 服务器: port 58138"
+    },
+    "tickLoopStarted": {
+      "time": "2026-06-12T07:44:11.108Z",
+      "line": "[TickLoop] started"
+    },
+    "botOnline": {
+      "time": "2026-06-12T07:44:11.113Z",
+      "line": "[Bot] 上线成功"
+    },
+    "debugStatusBeforeTarget": {
+      "time": "2026-06-12T07:46:44.888Z",
+      "botUsername": "LinXia",
+      "botPosition": { "x": 625.5, "y": 75, "z": 16.5 },
+      "inventoryCounts": {
+        "dirt": 3,
+        "furnace": 1,
+        "iron_ingot": 3,
+        "stone_pickaxe": 1
+      },
+      "heldItem": "stone_pickaxe"
+    }
+  },
+  "commandEvidence": {
+    "commandIntactChinese": "挖3个铁矿",
+    "loggedChatInput": "mojibake_in_console_log",
+    "intentToTask": {
+      "time": "2026-06-12T07:46:45.283Z",
+      "actionKey": "MINE",
+      "task": "mining",
+      "params": {
+        "ore": "iron",
+        "blockName": "iron_ore",
+        "targetBlock": "iron_ore",
+        "blockNames": ["iron_ore", "deepslate_iron_ore"],
+        "requiredTool": "stone_pickaxe_or_better",
+        "count": 3,
+        "mineUntilExhausted": false,
+        "maxDistance": 32
+      }
+    },
+    "taskCreated": {
+      "time": "2026-06-12T07:46:45.293Z",
+      "taskId": 3,
+      "type": "mining",
+      "targetCount": 3,
+      "minedCount": 0
+    },
+    "taskStarted": {
+      "time": "2026-06-12T07:46:45.414Z",
+      "taskId": 3,
+      "type": "mining"
+    }
+  },
+  "digAndPickupEvidence": [
+    {
+      "index": 1,
+      "targetBlock": "iron_ore",
+      "targetBlockPosition": { "x": 627, "y": 76, "z": 16 },
+      "expectedDropId": "raw_iron",
+      "selectedTool": "stone_pickaxe",
+      "dropEntity": { "id": 3251, "position": { "x": 628, "y": 76, "z": 17 }, "item": "raw_iron" },
+      "inventoryBefore": { "raw_iron": 0 },
+      "inventoryAfter": { "raw_iron": 1 },
+      "inventoryDelta": 1,
+      "entityGone": true,
+      "minedCountBefore": 0,
+      "minedCountAfter": 1,
+      "pickupResult": "pickup_success",
+      "confirmation": "inventory_delta_confirmed"
+    },
+    {
+      "index": 2,
+      "targetBlock": "iron_ore",
+      "targetBlockPosition": { "x": 627, "y": 76, "z": 17 },
+      "expectedDropId": "raw_iron",
+      "selectedTool": "stone_pickaxe",
+      "dropEntity": { "id": 3254, "position": { "x": 627, "y": 77, "z": 17 }, "item": "raw_iron" },
+      "inventoryBefore": { "raw_iron": 1 },
+      "inventoryAfter": { "raw_iron": 2 },
+      "inventoryDelta": 1,
+      "entityGone": true,
+      "minedCountBefore": 1,
+      "minedCountAfter": 2,
+      "pickupResult": "pickup_success",
+      "confirmation": "inventory_delta_confirmed"
+    },
+    {
+      "index": 3,
+      "targetBlock": "iron_ore",
+      "targetBlockPosition": { "x": 628, "y": 76, "z": 16 },
+      "expectedDropId": "raw_iron",
+      "selectedTool": "stone_pickaxe",
+      "dropEntity": { "id": 3259, "position": { "x": 628, "y": 76, "z": 17 }, "item": "raw_iron" },
+      "inventoryBefore": { "raw_iron": 2 },
+      "inventoryAfter": { "raw_iron": 3 },
+      "inventoryDelta": 1,
+      "entityGone": true,
+      "minedCountBefore": 2,
+      "minedCountAfter": 3,
+      "pickupResult": "pickup_success",
+      "confirmation": "inventory_delta_confirmed"
+    }
+  ],
+  "completionEvidence": {
+    "actualDugTargets": 3,
+    "expectedDropId": "raw_iron",
+    "inventoryDelta": { "raw_iron": 3 },
+    "minedCount": 3,
+    "remainingNearbyTargets": 0,
+    "taskCompleted": {
+      "time": "2026-06-12T07:46:52.747Z",
+      "line": "[TaskManager] completed #3 mining"
+    },
+    "botPositionAfter": {
+      "time": "2026-06-12T07:46:55.404Z",
+      "position": { "x": 628.32, "y": 76, "z": 16.64 }
+    },
+    "inventoryAfter": {
+      "time": "2026-06-12T07:46:55.404Z",
+      "counts": {
+        "dirt": 3,
+        "furnace": 1,
+        "iron_ingot": 3,
+        "raw_iron": 3,
+        "stone_pickaxe": 1
+      },
+      "heldItem": "stone_pickaxe"
+    },
+    "droppedItemsNotLeftOnGround": {
+      "status": "confirmed_for_target_drops",
+      "basis": "Each target drop entity had entityGone=true after inventory delta confirmation."
+    }
+  },
+  "candidateChecks": {
+    "actualMinedBlocksEquals3": true,
+    "rawIronOrActualDropDeltaEquals3": true,
+    "minedCountEquals3": true,
+    "taskManagerCompleted": true,
+    "targetDropEntitiesGone": true,
+    "threeWayConsistency": true
+  },
+  "limitations": [
+    "The full mining acceptance suite did not finish before the outer 360s timeout.",
+    "acceptance/reports/latest-report.json still reflects an earlier configured_ai_not_online BLOCKED attempt, not this targeted log-observed candidate.",
+    "The chat log text is mojibake in bot-current.log, so commandIntactChinese is taken from the mining acceptance scenario command and the user's requested verification phrase."
+  ]
+}

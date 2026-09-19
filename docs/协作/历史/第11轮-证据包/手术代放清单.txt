@@ -1,0 +1,181 @@
+# 第 11 轮门楼工地「手术代放」清单 —— 134 块
+# 工地：门楼 fort_wall_gate，原点 (599,67,-19)，run construction_run_d2f3cbb572ceb6b7，世界 building-A:新的世界
+# 手法：RCON 守护式放置  execute if block <x> <y> <z> air run setblock <x> <y> <z> <block>[<states>]
+# 依据：.tmp/cc-r11-y72-beams.txt（55 条候选，y72 梁层，约 15:49Z 执行）+ .tmp/cc-r11-hi-beams.txt（112 条候选，y76–82 塔柱，约 17:28Z 执行）
+#       = 167 条候选；其中 34 条她已自放（三段 bot 日志有 BUILD_STATEFUL_PLACE 记录）被守护条件跳过，
+#       实际落下 133 根原木 + 单独手术 1 块 604,75,-2 chiseled_stone_bricks = 134 块（与第 11 轮反馈"133 根黑橡木原木 + 1 块錾制石砖"吻合）。
+# 可信度：总数 134 是第 11 轮会话里按 RCON 回显数出的（已证实）；逐条回显未留档，"哪 133 条真正落下"用日志反推（合理推断）。
+# 用途：门楼终验与 #35 三连对账——这些坐标不算"她亲手放的"。
+# 格式：x y z block[states] | 来源清单 | 存档步序号与当前存档状态
+#
+# ===== A. 实际落下（134 块）=====
+602 72 -16 dark_oak_log[axis=z] | 清单=y72 | 存档#1513 verified
+602 72 -15 dark_oak_log[axis=z] | 清单=y72 | 存档#1514 verified
+602 72 -14 dark_oak_log[axis=x] | 清单=y72 | 存档#1517 verified
+602 72 -13 dark_oak_log[axis=x] | 清单=y72 | 存档#1521 verified
+602 72 -12 dark_oak_log[axis=y] | 清单=y72 | 存档#1526 verified
+602 72 -3 dark_oak_log[axis=y] | 清单=y72 | 存档#679 verified
+602 72 -2 dark_oak_log[axis=z] | 清单=y72 | 存档#680 verified
+602 72 -1 dark_oak_log[axis=y] | 清单=y72 | 存档#681 verified
+602 72 0 dark_oak_log[axis=z] | 清单=y72 | 存档#682 verified
+603 72 -15 dark_oak_log[axis=x] | 清单=y72 | 存档#1516 verified
+603 72 -14 dark_oak_log[axis=x] | 清单=y72 | 存档#1519 verified
+603 72 -13 dark_oak_log[axis=y] | 清单=y72 | 存档#1524 verified
+603 72 -12 dark_oak_log[axis=x] | 清单=y72 | 存档#1530 verified
+603 72 -3 dark_oak_log[axis=y] | 清单=y72 | 存档#405 verified
+603 72 -2 dark_oak_log[axis=y] | 清单=y72 | 存档#409 verified
+603 72 -1 dark_oak_log[axis=z] | 清单=y72 | 存档#414 verified
+603 72 0 dark_oak_log[axis=z] | 清单=y72 | 存档#418 verified
+604 72 -16 dark_oak_log[axis=y] | 清单=y72 | 存档#1518 verified
+604 72 -15 dark_oak_log[axis=x] | 清单=y72 | 存档#1520 verified
+604 72 -14 dark_oak_log[axis=x] | 清单=y72 | 存档#1523 verified
+604 72 -13 dark_oak_log[axis=x] | 清单=y72 | 存档#1528 verified
+604 72 -12 dark_oak_log[axis=z] | 清单=y72 | 存档#1533 verified
+604 72 -3 dark_oak_log[axis=y] | 清单=y72 | 存档#407 verified
+604 72 -2 dark_oak_log[axis=z] | 清单=y72 | 存档#411 verified
+604 72 -1 dark_oak_log[axis=z] | 清单=y72 | 存档#415 verified
+604 72 0 dark_oak_log[axis=x] | 清单=y72 | 存档#419 verified
+605 72 -16 dark_oak_log[axis=x] | 清单=y72 | 存档#1522 verified
+605 72 -15 dark_oak_log[axis=x] | 清单=y72 | 存档#1525 verified
+605 72 -14 dark_oak_log[axis=z] | 清单=y72 | 存档#1529 verified
+605 72 -13 dark_oak_log[axis=z] | 清单=y72 | 存档#1532 verified
+605 72 -12 dark_oak_log[axis=z] | 清单=y72 | 存档#1535 verified
+605 72 -4 dark_oak_log[axis=y] | 清单=y72 | 存档#404 verified
+605 72 -3 dark_oak_log[axis=z] | 清单=y72 | 存档#408 verified
+605 72 -2 dark_oak_log[axis=y] | 清单=y72 | 存档#412 verified
+605 72 -1 dark_oak_log[axis=x] | 清单=y72 | 存档#416 verified
+605 72 0 dark_oak_log[axis=x] | 清单=y72 | 存档#420 verified
+606 72 -16 dark_oak_log[axis=z] | 清单=y72 | 存档#1527 verified
+606 72 -15 dark_oak_log[axis=z] | 清单=y72 | 存档#1531 verified
+606 72 -14 dark_oak_log[axis=x] | 清单=y72 | 存档#1534 verified
+606 72 -13 dark_oak_log[axis=y] | 清单=y72 | 存档#1536 verified
+606 72 -12 dark_oak_log[axis=z] | 清单=y72 | 存档#1538 verified
+606 72 -4 dark_oak_log[axis=y] | 清单=y72 | 存档#406 verified
+606 72 -3 dark_oak_log[axis=z] | 清单=y72 | 存档#410 verified
+606 72 -2 dark_oak_log[axis=z] | 清单=y72 | 存档#413 verified
+606 72 -1 dark_oak_log[axis=z] | 清单=y72 | 存档#417 verified
+606 72 0 dark_oak_log[axis=x] | 清单=y72 | 存档#421 verified
+601 76 -16 dark_oak_log[axis=y] | 清单=hi | 存档#1460 verified
+601 76 -12 dark_oak_log[axis=y] | 清单=hi | 存档#1283 verified
+602 76 -17 dark_oak_log[axis=y] | 清单=hi | 存档#1461 verified
+606 76 -17 dark_oak_log[axis=y] | 清单=hi | 存档#1327 verified
+607 76 -16 dark_oak_log[axis=y] | 清单=hi | 存档#1246 verified
+607 76 -12 dark_oak_log[axis=y] | 清单=hi | 存档#876 verified
+601 77 -16 dark_oak_log[axis=y] | 清单=hi | 存档#1412 verified
+601 77 -12 dark_oak_log[axis=y] | 清单=hi | 存档#1247 verified
+602 77 -17 dark_oak_log[axis=y] | 清单=hi | 存档#1413 verified
+606 77 -17 dark_oak_log[axis=y] | 清单=hi | 存档#1329 verified
+607 77 -16 dark_oak_log[axis=y] | 清单=hi | 存档#1248 verified
+607 77 -12 dark_oak_log[axis=y] | 清单=hi | 存档#883 verified
+601 78 -16 dark_oak_log[axis=y] | 清单=hi | 存档#1375 verified
+601 78 -12 dark_oak_log[axis=y] | 清单=hi | 存档#1213 verified
+601 78 0 dark_oak_log[axis=y] | 清单=hi | 存档#902 verified
+602 78 -17 dark_oak_log[axis=y] | 清单=hi | 存档#1330 verified
+602 78 1 dark_oak_log[axis=y] | 清单=hi | 存档#752 verified
+606 78 -17 dark_oak_log[axis=y] | 清单=hi | 存档#1292 verified
+606 78 1 dark_oak_log[axis=y] | 清单=hi | 存档#579 verified
+607 78 -16 dark_oak_log[axis=y] | 清单=hi | 存档#1256 verified
+607 78 -12 dark_oak_log[axis=y] | 清单=hi | 存档#894 verified
+607 78 -4 dark_oak_log[axis=y] | 清单=hi | 存档#562 verified
+607 78 0 dark_oak_log[axis=y] | 清单=hi | 存档#576 verified
+600 79 -16 dark_oak_log[axis=y] | 清单=hi | 存档#1422 verified
+600 79 -12 dark_oak_log[axis=y] | 清单=hi | 存档#1258 verified
+600 79 -4 dark_oak_log[axis=y] | 清单=hi | 存档#1065 verified
+600 79 0 dark_oak_log[axis=y] | 清单=hi | 存档#1069 verified
+602 79 -18 dark_oak_log[axis=y] | 清单=hi | 存档#1468 verified
+602 79 -10 dark_oak_log[axis=y] | 清单=hi | 存档#1052 verified
+602 79 -6 dark_oak_log[axis=y] | 清单=hi | 存档#907 verified
+602 79 2 dark_oak_log[axis=y] | 清单=hi | 存档#770 verified
+606 79 -18 dark_oak_log[axis=y] | 清单=hi | 存档#1340 verified
+606 79 -10 dark_oak_log[axis=y] | 清单=hi | 存档#760 verified
+606 79 -6 dark_oak_log[axis=y] | 清单=hi | 存档#765 verified
+606 79 2 dark_oak_log[axis=y] | 清单=hi | 存档#601 verified
+608 79 -16 dark_oak_log[axis=y] | 清单=hi | 存档#1261 verified
+608 79 -12 dark_oak_log[axis=y] | 清单=hi | 存档#906 verified
+608 79 -4 dark_oak_log[axis=y] | 清单=hi | 存档#590 verified
+608 79 0 dark_oak_log[axis=y] | 清单=hi | 存档#595 verified
+600 80 -16 dark_oak_log[axis=y] | 清单=hi | 存档#1427 verified
+600 80 -12 dark_oak_log[axis=y] | 清单=hi | 存档#1262 verified
+600 80 -4 dark_oak_log[axis=y] | 清单=hi | 存档#1079 verified
+600 80 0 dark_oak_log[axis=y] | 清单=hi | 存档#1083 verified
+602 80 -18 dark_oak_log[axis=y] | 清单=hi | 存档#1469 verified
+602 80 -10 dark_oak_log[axis=y] | 清单=hi | 存档#1070 verified
+602 80 -6 dark_oak_log[axis=y] | 清单=hi | 存档#922 verified
+602 80 2 dark_oak_log[axis=y] | 清单=hi | 存档#780 verified
+606 80 -18 dark_oak_log[axis=y] | 清单=hi | 存档#1342 verified
+606 80 -10 dark_oak_log[axis=y] | 清单=hi | 存档#772 verified
+606 80 -6 dark_oak_log[axis=y] | 清单=hi | 存档#776 verified
+606 80 2 dark_oak_log[axis=y] | 清单=hi | 存档#612 verified
+608 80 -16 dark_oak_log[axis=y] | 清单=hi | 存档#1263 verified
+608 80 -12 dark_oak_log[axis=y] | 清单=hi | 存档#919 verified
+608 80 -4 dark_oak_log[axis=y] | 清单=hi | 存档#604 verified
+608 80 0 dark_oak_log[axis=y] | 清单=hi | 存档#608 verified
+600 81 -16 dark_oak_log[axis=y] | 清单=hi | 存档#1432 verified
+600 81 -12 dark_oak_log[axis=y] | 清单=hi | 存档#1264 verified
+600 81 -4 dark_oak_log[axis=y] | 清单=hi | 存档#1095 verified
+600 81 0 dark_oak_log[axis=y] | 清单=hi | 存档#1099 verified
+602 81 -18 dark_oak_log[axis=y] | 清单=hi | 存档#1471 verified
+602 81 -10 dark_oak_log[axis=y] | 清单=hi | 存档#1085 verified
+602 81 -6 dark_oak_log[axis=y] | 清单=hi | 存档#941 verified
+602 81 2 dark_oak_log[axis=y] | 清单=hi | 存档#790 verified
+606 81 -18 dark_oak_log[axis=y] | 清单=hi | 存档#1345 verified
+606 81 -10 dark_oak_log[axis=y] | 清单=hi | 存档#782 verified
+606 81 -6 dark_oak_log[axis=y] | 清单=hi | 存档#786 verified
+606 81 2 dark_oak_log[axis=y] | 清单=hi | 存档#621 verified
+608 81 -16 dark_oak_log[axis=y] | 清单=hi | 存档#1265 verified
+608 81 -12 dark_oak_log[axis=y] | 清单=hi | 存档#938 verified
+608 81 -4 dark_oak_log[axis=y] | 清单=hi | 存档#615 verified
+608 81 0 dark_oak_log[axis=y] | 清单=hi | 存档#619 verified
+600 82 -16 dark_oak_log[axis=y] | 清单=hi | 存档#1437 verified
+600 82 -12 dark_oak_log[axis=y] | 清单=hi | 存档#1266 verified
+600 82 -4 dark_oak_log[axis=y] | 清单=hi | 存档#1106 verified
+600 82 0 dark_oak_log[axis=y] | 清单=hi | 存档#1113 verified
+602 82 -18 dark_oak_log[axis=y] | 清单=hi | 存档#1473 verified
+602 82 -10 dark_oak_log[axis=y] | 清单=hi | 存档#1101 verified
+602 82 -6 dark_oak_log[axis=y] | 清单=hi | 存档#956 verified
+602 82 2 dark_oak_log[axis=y] | 清单=hi | 存档#803 verified
+606 82 -18 dark_oak_log[axis=y] | 清单=hi | 存档#1349 verified
+606 82 -10 dark_oak_log[axis=y] | 清单=hi | 存档#795 verified
+606 82 -6 dark_oak_log[axis=y] | 清单=hi | 存档#799 verified
+606 82 2 dark_oak_log[axis=y] | 清单=hi | 存档#630 verified
+608 82 -16 dark_oak_log[axis=y] | 清单=hi | 存档#1267 verified
+608 82 -12 dark_oak_log[axis=y] | 清单=hi | 存档#953 verified
+608 82 -4 dark_oak_log[axis=y] | 清单=hi | 存档#624 verified
+608 82 0 dark_oak_log[axis=y] | 清单=hi | 存档#628 verified
+604 75 -2 chiseled_stone_bricks | 单独手术（unstable_air 三次同点后） | 存档#498 verified lastError=place_failed:unstable_air×3
+#
+# ===== B. 候选中被守护条件跳过（34 条，她自己放的，只列出以便对账）=====
+602 72 -4 dark_oak_log[axis=x] | 清单=y72 | 存档#678 verified | 她自放于 2026-09-01T15:37:14.060Z dark_oak_log axis_x ref=603,72,-4
+603 72 -16 dark_oak_log[axis=z] | 清单=y72 | 存档#1515 verified | 她自放于 2026-09-01T15:46:35.019Z dark_oak_log axis_z ref=603,72,-17
+603 72 -4 dark_oak_log[axis=x] | 清单=y72 | 存档#401 verified | 她自放于 2026-09-01T15:33:02.720Z dark_oak_log axis_x ref=604,72,-4
+604 72 -4 dark_oak_log[axis=x] | 清单=y72 | 存档#403 verified | 她自放于 2026-09-01T15:33:48.477Z dark_oak_log axis_x ref=603,72,-4
+606 72 -10 oak_log[axis=z] | 清单=y72 | 存档#378 verified | 她自放于 2026-09-01T15:32:43.362Z oak_log axis_z ref=606,72,-9
+606 72 -9 oak_log[axis=z] | 清单=y72 | 存档#383 verified | 她自放于 2026-09-01T15:32:50.035Z oak_log axis_z ref=606,72,-10
+606 72 -8 oak_log[axis=z] | 清单=y72 | 存档#388 verified | 她自放于 2026-09-01T15:32:53.568Z oak_log axis_z ref=606,72,-9
+606 72 -7 oak_log[axis=z] | 清单=y72 | 存档#392 verified | 她自放于 2026-09-01T15:32:55.636Z oak_log axis_z ref=606,72,-8
+606 72 -6 oak_log[axis=z] | 清单=y72 | 存档#397 verified | 她自放于 2026-09-01T15:32:59.377Z oak_log axis_z ref=606,72,-7
+601 76 -4 dark_oak_log[axis=y] | 清单=hi | 存档#877 verified | 她自放于 2026-09-01T16:33:27.523Z dark_oak_log axis_y ref=601,75,-4
+601 76 0 dark_oak_log[axis=y] | 清单=hi | 存档#881 verified | 她自放于 2026-09-01T16:33:33.967Z dark_oak_log axis_y ref=601,75,0
+602 76 -11 dark_oak_log[axis=y] | 清单=hi | 存档#1030 verified | 她自放于 2026-09-01T16:32:54.370Z dark_oak_log axis_y ref=602,75,-11
+602 76 -5 dark_oak_log[axis=y] | 清单=hi | 存档#714 verified | 她自放于 2026-09-01T16:33:21.257Z dark_oak_log axis_y ref=602,75,-5
+602 76 1 dark_oak_log[axis=y] | 清单=hi | 存档#715 verified | 她自放于 2026-09-01T16:33:34.899Z dark_oak_log axis_y ref=602,75,1
+606 76 -11 dark_oak_log[axis=y] | 清单=hi | 存档#712 verified | 她自放于 2026-09-01T16:33:00.300Z dark_oak_log axis_y ref=606,75,-11
+606 76 -5 dark_oak_log[axis=y] | 清单=hi | 存档#521 verified | 她自放于 2026-09-01T16:33:30.985Z dark_oak_log axis_y ref=606,75,-5
+606 76 1 dark_oak_log[axis=y] | 清单=hi | 存档#531 verified | 她自放于 2026-09-01T16:33:42.305Z dark_oak_log axis_y ref=606,75,1
+607 76 -4 dark_oak_log[axis=y] | 清单=hi | 存档#522 verified | 她自放于 2026-09-01T16:33:31.753Z dark_oak_log axis_y ref=607,75,-4
+607 76 0 dark_oak_log[axis=y] | 清单=hi | 存档#529 verified | 她自放于 2026-09-01T16:33:39.379Z dark_oak_log axis_y ref=607,75,0
+601 77 -4 dark_oak_log[axis=y] | 清单=hi | 存档#885 verified | 她自放于 2026-09-01T16:56:38.629Z dark_oak_log axis_y ref=601,76,-4
+601 77 0 dark_oak_log[axis=y] | 清单=hi | 存档#890 verified | 她自放于 2026-09-01T16:57:55.634Z dark_oak_log axis_y ref=601,76,0
+602 77 -11 dark_oak_log[axis=y] | 清单=hi | 存档#1032 verified | 她自放于 2026-09-01T16:34:53.612Z dark_oak_log axis_y ref=602,76,-11
+602 77 -5 dark_oak_log[axis=y] | 清单=hi | 存档#725 verified | 她自放于 2026-09-01T16:56:36.856Z dark_oak_log axis_y ref=602,76,-5
+602 77 1 dark_oak_log[axis=y] | 清单=hi | 存档#726 verified | 她自放于 2026-09-01T16:57:56.597Z dark_oak_log axis_y ref=602,76,1
+606 77 -11 dark_oak_log[axis=y] | 清单=hi | 存档#720 verified | 她自放于 2026-09-01T16:35:21.488Z dark_oak_log axis_y ref=606,76,-11
+606 77 -5 dark_oak_log[axis=y] | 清单=hi | 存档#546 verified | 她自放于 2026-09-01T16:57:03.137Z dark_oak_log axis_y ref=606,76,-5
+606 77 1 dark_oak_log[axis=y] | 清单=hi | 存档#556 verified | 她自放于 2026-09-01T16:58:02.132Z dark_oak_log axis_y ref=606,76,1
+607 77 -4 dark_oak_log[axis=y] | 清单=hi | 存档#548 verified | 她自放于 2026-09-01T16:57:47.483Z dark_oak_log axis_y ref=607,76,-4
+607 77 0 dark_oak_log[axis=y] | 清单=hi | 存档#554 verified | 她自放于 2026-09-01T16:58:01.114Z dark_oak_log axis_y ref=607,76,0
+601 78 -4 dark_oak_log[axis=y] | 清单=hi | 存档#898 verified | 她自放于 2026-09-01T16:58:32.222Z dark_oak_log axis_y ref=601,77,-4
+602 78 -11 dark_oak_log[axis=y] | 清单=hi | 存档#1034 verified | 她自放于 2026-09-01T17:18:45.583Z dark_oak_log axis_y ref=602,77,-11
+602 78 -5 dark_oak_log[axis=y] | 清单=hi | 存档#733 verified | 她自放于 2026-09-01T16:58:30.020Z dark_oak_log axis_y ref=602,77,-5
+606 78 -11 dark_oak_log[axis=y] | 清单=hi | 存档#727 verified | 她自放于 2026-09-01T16:58:28.811Z dark_oak_log axis_y ref=606,77,-11
+606 78 -5 dark_oak_log[axis=y] | 清单=hi | 存档#558 verified | 她自放于 2026-09-01T16:58:36.317Z dark_oak_log axis_y ref=606,77,-5

@@ -1,0 +1,263 @@
+{
+  "version": 1,
+  "fetchedAt": null,
+  "sources": [
+    {
+      "id": "github-free-minecraft-schematics-house-pirbaba",
+      "source": "github",
+      "repository": "Sigmakib2/Free-Minecraft-Schematics",
+      "cloneUrl": "https://github.com/Sigmakib2/Free-Minecraft-Schematics.git",
+      "branch": "main",
+      "ref": "b728734216cc84ca7e24ba56341581c1ebff049e",
+      "sourcePageIdentifier": "https://github.com/Sigmakib2/Free-Minecraft-Schematics/blob/main/Over_World/house_build_PirBaba.litematic",
+      "filePath": "Over_World/house_build_PirBaba.litematic",
+      "author": "Sigmakib2",
+      "buildTitle": "house_build_PirBaba",
+      "category": "wood_house",
+      "style": "wood",
+      "buildingType": "two_story_wood_house",
+      "requiredStories": 2,
+      "structureFileFormat": "litematic",
+      "minecraftVersion": "dataVersion:3120",
+      "ratingMetadata": {
+        "source": "GitHub repository metadata",
+        "stars": null,
+        "forks": null,
+        "downloads": null,
+        "unavailableReason": "github_api_metadata_unavailable_in_current_tool_run"
+      },
+      "license": {
+        "type": "not_provided_by_source",
+        "url": null,
+        "usage": "README states the repository holds Litematica files of freemcschematics.com; no LICENSE file was available in the fetched repository."
+      }
+    },
+    {
+      "id": "github-dennis-muenster-castle-schematic",
+      "source": "github",
+      "repository": "Dennis-Hermann-Muenster/Minecraft_Castle_Schematic",
+      "cloneUrl": "https://github.com/Dennis-Hermann-Muenster/Minecraft_Castle_Schematic.git",
+      "branch": "master",
+      "ref": "28a298f4223d14eeb5209e8738e780b46e303464",
+      "sourcePageIdentifier": "https://github.com/Dennis-Hermann-Muenster/Minecraft_Castle_Schematic/blob/master/Castle.schematic",
+      "filePath": "Castle.schematic",
+      "author": "Dennis-Hermann-Muenster",
+      "buildTitle": "Castle",
+      "category": "castle",
+      "style": "castle",
+      "buildingType": "castle_garden",
+      "requiredStories": 2,
+      "structureFileFormat": "schematic",
+      "minecraftVersion": "legacy_schematic",
+      "ratingMetadata": {
+        "source": "GitHub repository metadata",
+        "stars": null,
+        "forks": null,
+        "downloads": null,
+        "unavailableReason": "github_api_metadata_unavailable_in_current_tool_run"
+      },
+      "license": {
+        "type": "not_provided_by_source",
+        "url": null,
+        "usage": "No README or LICENSE file was available in the fetched repository."
+      }
+    },
+    {
+      "id": "github-ifnullthenvoid-fort-wall-gate",
+      "source": "github",
+      "repository": "IfNullThenVoid/minecraft-litematica-schematics",
+      "cloneUrl": "https://github.com/IfNullThenVoid/minecraft-litematica-schematics.git",
+      "branch": "main",
+      "ref": "10451e867c0cf552f9ae3860f99358d16321e6d3",
+      "sourcePageIdentifier": "https://github.com/IfNullThenVoid/minecraft-litematica-schematics/blob/main/fort-wall-gate.litematic",
+      "filePath": "fort-wall-gate.litematic",
+      "author": "IfNullThenVoid",
+      "fileAuthorStatus": "repository_owner; README says some schematics may be by other authors, file-level author is not specified",
+      "buildTitle": "fort-wall-gate",
+      "category": "castle",
+      "style": "castle",
+      "buildingType": "castle_garden",
+      "structureUse": "nonresidential",
+      "requiredStories": 2,
+      "structureFileFormat": "litematic",
+      "minecraftVersion": "not_provided_by_source",
+      "ratingMetadata": {
+        "source": "GitHub repository page metadata",
+        "stars": 2,
+        "forks": 0,
+        "watchers": 0,
+        "downloads": null,
+        "fetchedAt": "2026-06-19T03:40:00.000Z"
+      },
+      "license": {
+        "type": "not_provided_by_source",
+        "url": null,
+        "usage": "Repository README describes usage with Litematica, but no LICENSE file is present in the fetched repository."
+      }
+    },
+    {
+      "id": "github-ifnullthenvoid-fort-watchtower",
+      "source": "github",
+      "repository": "IfNullThenVoid/minecraft-litematica-schematics",
+      "cloneUrl": "https://github.com/IfNullThenVoid/minecraft-litematica-schematics.git",
+      "branch": "main",
+      "ref": "10451e867c0cf552f9ae3860f99358d16321e6d3",
+      "sourcePageIdentifier": "https://github.com/IfNullThenVoid/minecraft-litematica-schematics/blob/main/fort-watchtower.litematic",
+      "filePath": "fort-watchtower.litematic",
+      "author": "IfNullThenVoid",
+      "fileAuthorStatus": "repository_owner; README says some schematics may be by other authors, file-level author is not specified",
+      "buildTitle": "fort-watchtower",
+      "category": "castle",
+      "style": "castle",
+      "buildingType": "castle_garden",
+      "structureUse": "nonresidential",
+      "requiredStories": 2,
+      "structureFileFormat": "litematic",
+      "minecraftVersion": "not_provided_by_source",
+      "ratingMetadata": {
+        "source": "GitHub repository page metadata",
+        "stars": 2,
+        "forks": 0,
+        "watchers": 0,
+        "downloads": null,
+        "fetchedAt": "2026-06-19T03:40:00.000Z"
+      },
+      "license": {
+        "type": "not_provided_by_source",
+        "url": null,
+        "usage": "Repository README describes usage with Litematica, but no LICENSE file is present in the fetched repository."
+      }
+    },
+    {
+      "id": "github-interlude6465-hunterx-simple-house",
+      "source": "github",
+      "repository": "interlude6465/HunterX",
+      "cloneUrl": "https://github.com/interlude6465/HunterX.git",
+      "branch": "main",
+      "ref": "c56d1ec1b14954c52d8f2a7a17c29293976e76d4",
+      "sourcePageIdentifier": "https://github.com/interlude6465/HunterX/blob/main/simple_house.schem",
+      "filePath": "simple_house.schem",
+      "author": "interlude6465",
+      "buildTitle": "simple_house",
+      "category": "wood_house",
+      "style": "wood",
+      "buildingType": "single_story_house",
+      "requiredStories": 1,
+      "structureFileFormat": "schem",
+      "minecraftVersion": "sponge_schematic",
+      "ratingMetadata": {
+        "source": "GitHub repository metadata",
+        "stars": null,
+        "forks": null,
+        "downloads": null,
+        "unavailableReason": "github_api_rate_limited_while_fetching_repository_metadata"
+      },
+      "license": {
+        "type": "not_provided_by_source",
+        "url": null,
+        "usage": "Repository README was available, but no LICENSE metadata could be fetched during the current rate-limited tool run."
+      }
+    },
+    {
+      "id": "mcbuild-modern-house-on-a-hilltop-18658",
+      "source": "mcbuild",
+      "repository": null,
+      "sourcePageIdentifier": "https://mcbuild.org/schematics/18658:modern-house-on-a-hilltop",
+      "downloadPageIdentifier": "https://mcbuild.org/download/schematic=18658",
+      "fileName": "modern-house-on-a-hilltop-18658.schematic",
+      "author": "not_provided_by_source",
+      "buildTitle": "Modern House on a Hilltop",
+      "description": "McBuild page describes a modern two-story hillside house with garden, separate garage, open-plan dining/living area, bedrooms, pool, and roof terrace.",
+      "category": "modern_villa",
+      "style": "modern",
+      "buildingType": "modern_villa",
+      "requiredStories": 2,
+      "structureFileFormat": "schematic",
+      "minecraftVersion": "not_provided_by_source; classic_schematic",
+      "importMaxVolume": 900000,
+      "siteFitExtraction": {
+        "type": "coordinate_crop",
+        "coordinateSpace": "source_schematic_coordinates",
+        "box": {
+          "minX": 28,
+          "maxX": 62,
+          "minZ": 25,
+          "maxZ": 60
+        },
+        "reason": "The raw community schematic is a large hillside build; this extracts the real main-house region that retains doors, roof, multi-story interior, and continuous stairs while fitting the P8R build site budget.",
+        "blueprintName": "modern_house_on_a_hilltop_site_fit"
+      },
+      "ratingMetadata": {
+        "source": "McBuild page metadata",
+        "likes": 1,
+        "downloads": 147,
+        "fetchedAt": "2026-06-19T08:56:00.000Z"
+      },
+      "license": {
+        "type": "not_provided_by_source",
+        "url": null,
+        "usage": "The fetched McBuild page did not provide explicit license terms; cached only as a real community source for local structural analysis and adaptation evidence."
+      }
+    },
+    {
+      "id": "mcbuild-a-small-modern-house-16786",
+      "source": "mcbuild",
+      "repository": null,
+      "sourcePageIdentifier": "https://mcbuild.org/schematics/16786:a-small-modern-house",
+      "downloadPageIdentifier": "https://mcbuild.org/download/schematic=16786",
+      "fileName": "a-small-modern-house-16772.litematic",
+      "author": "Alterio (build design credited on page to Rizzial)",
+      "buildTitle": "A Small Modern House",
+      "description": "Compact modern house: quartz block and quartz slab shell with cyan terracotta accents and black stained glass panes, two levels connected by interior stairs.",
+      "category": "modern_villa",
+      "style": "modern",
+      "buildingType": "modern_villa",
+      "requiredStories": 2,
+      "structureFileFormat": "litematic",
+      "minecraftVersion": "not_provided_by_source; litematica_schematic",
+      "ratingMetadata": {
+        "source": "McBuild page metadata",
+        "likes": 41,
+        "downloads": 35122,
+        "views": 85209,
+        "publishedOn": "2023-06-10",
+        "fetchedAt": "2026-08-30T00:00:00.000Z"
+      },
+      "license": {
+        "type": "not_provided_by_source",
+        "url": null,
+        "usage": "The fetched McBuild page did not provide explicit license terms; cached only as a real community source for local structural analysis and adaptation evidence."
+      }
+    },
+    {
+      "id": "mcbuild-wood-modern-house-15774",
+      "source": "mcbuild",
+      "repository": null,
+      "sourcePageIdentifier": "https://mcbuild.org/schematics/15774:wood-modern-house",
+      "downloadPageIdentifier": "https://mcbuild.org/download/schematic=15774",
+      "fileName": "wood-modern-house-15760.schem",
+      "author": "yackx",
+      "buildTitle": "Wood Modern House",
+      "description": "Two-level modern-massing house with a warm wood palette: oak and spruce planks, stripped logs, spruce stairs/trapdoors, six doors and a small glazed frontage.",
+      "category": "modern_villa",
+      "style": "modern",
+      "buildingType": "modern_villa",
+      "requiredStories": 2,
+      "structureFileFormat": "schem",
+      "minecraftVersion": "not_provided_by_source; sponge_schem",
+      "ratingMetadata": {
+        "source": "McBuild page metadata",
+        "likes": 57,
+        "downloads": 49279,
+        "views": 119815,
+        "publishedOn": "2023-06-10",
+        "fetchedAt": "2026-08-30T00:00:00.000Z"
+      },
+      "license": {
+        "type": "not_provided_by_source",
+        "url": null,
+        "usage": "The fetched McBuild page did not provide explicit license terms; cached only as a real community source for local structural analysis and adaptation evidence."
+      }
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "name": "farm_plot",
+  "description": "Simple dirt farm plot",
+  "metadata": { "displayName": "农田", "zhNames": ["农田", "农地"] },
+  "origin": { "x": 0, "y": 0, "z": 0 },
+  "blocks": [
+    { "x": 0, "y": 0, "z": 0, "type": "dirt" },
+    { "x": 1, "y": 0, "z": 0, "type": "dirt" },
+    { "x": 2, "y": 0, "z": 0, "type": "dirt" },
+    { "x": 0, "y": 0, "z": 1, "type": "dirt" },
+    { "x": 1, "y": 0, "z": 1, "type": "dirt" },
+    { "x": 2, "y": 0, "z": 1, "type": "dirt" },
+    { "x": 0, "y": 0, "z": 2, "type": "dirt" },
+    { "x": 1, "y": 0, "z": 2, "type": "dirt" },
+    { "x": 2, "y": 0, "z": 2, "type": "dirt" },
+    { "x": -1, "y": 0, "z": -1, "type": "oak_fence" },
+    { "x": 0, "y": 0, "z": -1, "type": "oak_fence" },
+    { "x": 1, "y": 0, "z": -1, "type": "oak_fence" },
+    { "x": 2, "y": 0, "z": -1, "type": "oak_fence" },
+    { "x": 3, "y": 0, "z": -1, "type": "oak_fence" },
+    { "x": -1, "y": 0, "z": 0, "type": "oak_fence" },
+    { "x": 3, "y": 0, "z": 0, "type": "oak_fence" },
+    { "x": -1, "y": 0, "z": 1, "type": "oak_fence" },
+    { "x": 3, "y": 0, "z": 1, "type": "oak_fence" },
+    { "x": -1, "y": 0, "z": 2, "type": "oak_fence" },
+    { "x": 3, "y": 0, "z": 2, "type": "oak_fence" },
+    { "x": -1, "y": 0, "z": 3, "type": "oak_fence" },
+    { "x": 0, "y": 0, "z": 3, "type": "oak_fence" },
+    { "x": 1, "y": 0, "z": 3, "type": "oak_fence" },
+    { "x": 2, "y": 0, "z": 3, "type": "oak_fence" },
+    { "x": 3, "y": 0, "z": 3, "type": "oak_fence" }
+  ]
+}

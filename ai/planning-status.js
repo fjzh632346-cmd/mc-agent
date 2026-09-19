@@ -1,0 +1,20 @@
+const PLAN_STATUS = Object.freeze({
+  PENDING: 'PENDING',
+  RUNNING: 'RUNNING',
+  COMPLETED: 'COMPLETED',
+  FAILED: 'FAILED',
+  CANCELLED: 'CANCELLED'
+})
+
+const STEP_STATUS = Object.freeze({
+  PENDING: 'PENDING',
+  RUNNING: 'RUNNING',
+  COMPLETED: 'COMPLETED',
+  FAILED: 'FAILED',
+  SKIPPED: 'SKIPPED'
+})
+
+module.exports = {
+  PLAN_STATUS,
+  STEP_STATUS
+}

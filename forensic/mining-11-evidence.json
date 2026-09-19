@@ -1,0 +1,240 @@
+{
+  "schemaVersion": 1,
+  "status": "forensic_only",
+  "verificationLevel": "game_passed",
+  "strongBaselineStatus": "NOT_verified_strong_baseline",
+  "countsTowardStrongPass": false,
+  "baselineUse": "historical evidence only; must not be counted as strong PASS",
+  "scope": "Preserve dangling-blob traces that mining 11 cases once appeared as PASS; this file is not a verified baseline.",
+  "missingTopLevelFields": {
+    "assertionStrength": "absent",
+    "strong_real_delta": "absent",
+    "state_verified": "absent",
+    "negativeCase": "absent",
+    "anchoredCommit03d48d6": "absent"
+  },
+  "miningCaseNames": [
+    "mining auto-prepares wooden pickaxe for stone",
+    "mining auto-prepares stone pickaxe for iron ore",
+    "mining mines exactly three iron ore blocks",
+    "mining iron ore until nearby targets are exhausted",
+    "mining auto-preparation reports missing materials",
+    "mining diamond ore fails clearly when pickaxe tier is too low",
+    "woodcutting breaks log bare-handed when no axe is available",
+    "woodcutting tree count does not complete after one block",
+    "woodcutting chops three trees for a three-tree request",
+    "woodcutting default log batch chops more than one log",
+    "woodcutting reports partial when nearby trees are insufficient"
+  ],
+  "evidenceRecords": [
+    {
+      "blobHash": "16e42fabe78ed98ec5616a15cf283e82394cfc6d",
+      "observedObjectType": "blob",
+      "inferredSourceType": "old acceptance/reports/latest-report.json",
+      "observedFields": {
+        "projectName": "minecraft",
+        "passCount": 11,
+        "failCount": 0,
+        "blockedCount": 0,
+        "errorCount": 0,
+        "featureName": "mining",
+        "judgment": "PASS",
+        "verificationLevel": "game_passed",
+        "actualResults": [
+          "auto-wooden-pickaxe-stone_verified",
+          "auto-stone-pickaxe-iron-ore_verified",
+          "iron_ore_count_three_verified",
+          "iron_ore_until_exhausted_verified",
+          "missing_material_negative_verified",
+          "diamond_low_tier_tool_failure_verified",
+          "woodcutting_bare_hand_verified",
+          "woodcutting_count_verified",
+          "woodcutting_three_trees_verified",
+          "woodcutting_default_log_batch_verified",
+          "woodcutting_insufficient_trees_verified"
+        ]
+      },
+      "miningCaseNames": [
+        "mining auto-prepares wooden pickaxe for stone",
+        "mining auto-prepares stone pickaxe for iron ore",
+        "mining mines exactly three iron ore blocks",
+        "mining iron ore until nearby targets are exhausted",
+        "mining auto-preparation reports missing materials",
+        "mining diamond ore fails clearly when pickaxe tier is too low",
+        "woodcutting breaks log bare-handed when no axe is available",
+        "woodcutting tree count does not complete after one block",
+        "woodcutting chops three trees for a three-tree request",
+        "woodcutting default log batch chops more than one log",
+        "woodcutting reports partial when nearby trees are insufficient"
+      ],
+      "absentFields": {
+        "assertionStrength": "absent",
+        "strong_real_delta": "absent",
+        "state_verified": "absent",
+        "negativeCase": "absent",
+        "anchoredCommit03d48d6": "absent"
+      },
+      "notes": "Structured report evidence shows 11 mining results with PASS judgment and game_passed verificationLevel. It does not contain assertion strength, negativeCase markers, or commit 03d48d6 anchoring."
+    },
+    {
+      "blobHash": "adec33541e3e1450405ff1bf111196a6877e48fe",
+      "observedObjectType": "blob",
+      "inferredSourceType": "old acceptance/reports/latest-audit-ledger.json",
+      "observedFields": {
+        "projectName": "minecraft",
+        "latestExecutedSummary": {
+          "total": 11,
+          "passCount": 11,
+          "failCount": 0,
+          "blockedCount": 0,
+          "errorCount": 0,
+          "statusCounts": {
+            "PASS": 11
+          },
+          "featureCounts": {
+            "mining": 11
+          }
+        },
+        "auditLedgerSummary": {
+          "finalLedgerStatusCounts": {
+            "PASS": 11,
+            "UNVERIFIED": 33
+          },
+          "latestExecutionStatusCounts": {
+            "REPORTED": 11,
+            "NOT_REPORTED": 33
+          }
+        },
+        "miningEntries": {
+          "latestJudgment": "PASS",
+          "finalLedgerStatus": "PASS",
+          "verificationLevel": "game_passed",
+          "reasons": [
+            "auto-wooden-pickaxe-stone_verified",
+            "auto-stone-pickaxe-iron-ore_verified",
+            "iron_ore_count_three_verified",
+            "iron_ore_until_exhausted_verified",
+            "missing_material_negative_verified",
+            "diamond_low_tier_tool_failure_verified",
+            "woodcutting_bare_hand_verified",
+            "woodcutting_count_verified",
+            "woodcutting_three_trees_verified",
+            "woodcutting_default_log_batch_verified",
+            "woodcutting_insufficient_trees_verified"
+          ]
+        }
+      },
+      "miningCaseNames": [
+        "mining auto-prepares wooden pickaxe for stone",
+        "mining auto-prepares stone pickaxe for iron ore",
+        "mining mines exactly three iron ore blocks",
+        "mining iron ore until nearby targets are exhausted",
+        "mining auto-preparation reports missing materials",
+        "mining diamond ore fails clearly when pickaxe tier is too low",
+        "woodcutting breaks log bare-handed when no axe is available",
+        "woodcutting tree count does not complete after one block",
+        "woodcutting chops three trees for a three-tree request",
+        "woodcutting default log batch chops more than one log",
+        "woodcutting reports partial when nearby trees are insufficient"
+      ],
+      "absentFields": {
+        "assertionStrength": "absent",
+        "strong_real_delta": "absent",
+        "state_verified": "absent",
+        "negativeCase": "absent",
+        "anchoredCommit03d48d6": "absent"
+      },
+      "notes": "Structured audit ledger evidence shows mining=11 with finalLedgerStatus PASS and verificationLevel game_passed. It does not contain assertion strength, negativeCase markers, or commit 03d48d6 anchoring."
+    },
+    {
+      "blobHash": "494779172eaf45eb03425146e3a5d474a7e5621f",
+      "observedObjectType": "blob",
+      "inferredSourceType": "old acceptance/reports/latest-audit-ledger.md",
+      "observedFields": {
+        "projectName": "minecraft",
+        "latestExecutedSummary": {
+          "total": 11,
+          "result": "11 PASS / 0 FAIL / 0 BLOCKED / 0 ERROR",
+          "statusCounts": "PASS=11",
+          "featureCounts": "mining=11"
+        },
+        "caseUniverseSummary": {
+          "total": 44,
+          "featureCounts": "combat=2, crafting=16, farming=4, following=1, mining=11, storage=10"
+        },
+        "auditLedgerSummary": {
+          "finalLedgerStatusCounts": "PASS=11, UNVERIFIED=33",
+          "latestExecutionStatusCounts": "NOT_REPORTED=33, REPORTED=11"
+        },
+        "featureLedgerSummary": "mining | 11 | PASS=11 | REPORTED=11",
+        "miningRows": "Rows 24-34 show latestExecutionStatus REPORTED, latestJudgment PASS, finalLedgerStatus PASS, and per-case reason strings."
+      },
+      "miningCaseNames": [
+        "mining auto-prepares wooden pickaxe for stone",
+        "mining auto-prepares stone pickaxe for iron ore",
+        "mining mines exactly three iron ore blocks",
+        "mining iron ore until nearby targets are exhausted",
+        "mining auto-preparation reports missing materials",
+        "mining diamond ore fails clearly when pickaxe tier is too low",
+        "woodcutting breaks log bare-handed when no axe is available",
+        "woodcutting tree count does not complete after one block",
+        "woodcutting chops three trees for a three-tree request",
+        "woodcutting default log batch chops more than one log",
+        "woodcutting reports partial when nearby trees are insufficient"
+      ],
+      "absentFields": {
+        "assertionStrength": "absent",
+        "strong_real_delta": "absent",
+        "state_verified": "absent",
+        "negativeCase": "absent",
+        "anchoredCommit03d48d6": "absent"
+      },
+      "notes": "Markdown audit ledger evidence shows mining 11 PASS rows, but it is table evidence only and lacks assertion strength, negativeCase markers, and commit 03d48d6 anchoring."
+    },
+    {
+      "blobHash": "b5ec1803eeada30cd770f63d41eade97189298b4",
+      "observedObjectType": "blob",
+      "inferredSourceType": "old acceptance/reports/latest-audit-ledger.md",
+      "observedFields": {
+        "projectName": "minecraft",
+        "latestExecutedSummary": {
+          "total": 11,
+          "result": "11 PASS / 0 FAIL / 0 BLOCKED / 0 ERROR",
+          "statusCounts": "PASS=11",
+          "featureCounts": "mining=11"
+        },
+        "caseUniverseSummary": {
+          "total": 44,
+          "featureCounts": "combat=2, crafting=16, farming=4, following=1, mining=11, storage=10"
+        },
+        "auditLedgerSummary": {
+          "finalLedgerStatusCounts": "PASS=11, UNVERIFIED=33",
+          "latestExecutionStatusCounts": "NOT_REPORTED=33, REPORTED=11"
+        },
+        "featureLedgerSummary": "mining | 11 | PASS=11 | REPORTED=11",
+        "miningRows": "Rows 24-34 show latestExecutionStatus REPORTED, latestJudgment PASS, finalLedgerStatus PASS, and per-case reason strings."
+      },
+      "miningCaseNames": [
+        "mining auto-prepares wooden pickaxe for stone",
+        "mining auto-prepares stone pickaxe for iron ore",
+        "mining mines exactly three iron ore blocks",
+        "mining iron ore until nearby targets are exhausted",
+        "mining auto-preparation reports missing materials",
+        "mining diamond ore fails clearly when pickaxe tier is too low",
+        "woodcutting breaks log bare-handed when no axe is available",
+        "woodcutting tree count does not complete after one block",
+        "woodcutting chops three trees for a three-tree request",
+        "woodcutting default log batch chops more than one log",
+        "woodcutting reports partial when nearby trees are insufficient"
+      ],
+      "absentFields": {
+        "assertionStrength": "absent",
+        "strong_real_delta": "absent",
+        "state_verified": "absent",
+        "negativeCase": "absent",
+        "anchoredCommit03d48d6": "absent"
+      },
+      "notes": "Markdown audit ledger evidence shows mining 11 PASS rows, but it is table evidence only and lacks assertion strength, negativeCase markers, and commit 03d48d6 anchoring."
+    }
+  ]
+}

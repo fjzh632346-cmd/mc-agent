@@ -1,0 +1,984 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>林夏项目进度看板</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><rect width='16' height='16' rx='3' fill='%232a78d6'/></svg>">
+<style>
+:root{
+  color-scheme: light;
+  --page:#f9f9f7; --surface:#fcfcfb;
+  --ink-1:#0b0b0b; --ink-2:#52514e; --ink-3:#898781;
+  --grid:#e1e0d9; --axis:#c3c2b7; --hair:rgba(11,11,11,.10);
+  --series:#2a78d6;
+  --good:#0ca30c; --warn:#fab219; --serious:#ec835a; --crit:#d03b3b;
+  --wash:rgba(11,11,11,.035);
+  --radius:10px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --page:#0d0d0d; --surface:#1a1a19;
+    --ink-1:#ffffff; --ink-2:#c3c2b7; --ink-3:#898781;
+    --grid:#2c2c2a; --axis:#383835; --hair:rgba(255,255,255,.10);
+    --series:#3987e5;
+    --wash:rgba(255,255,255,.05);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --page:#0d0d0d; --surface:#1a1a19;
+  --ink-1:#ffffff; --ink-2:#c3c2b7; --ink-3:#898781;
+  --grid:#2c2c2a; --axis:#383835; --hair:rgba(255,255,255,.10);
+  --series:#3987e5;
+  --wash:rgba(255,255,255,.05);
+}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{
+  margin:0; background:var(--page); color:var(--ink-1);
+  font:14px/1.6 system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1360px;margin:0 auto;padding:22px 22px 64px}
+
+/* ---------- 顶栏 ---------- */
+header{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:22px}
+h1{font-size:21px;font-weight:650;margin:0;letter-spacing:-.01em}
+.sub{color:var(--ink-2);font-size:13px;margin-top:3px}
+.tools{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+button,select,input,textarea{font:inherit;color:inherit}
+.btn{
+  background:var(--surface);border:1px solid var(--hair);border-radius:8px;
+  padding:6px 12px;cursor:pointer;transition:background .12s;
+}
+.btn:hover{background:var(--wash)}
+.btn.on{background:var(--ink-1);color:var(--surface);border-color:var(--ink-1)}
+.stamp{color:var(--ink-3);font-size:12px}
+
+/* ---------- 概览卡 ---------- */
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-bottom:20px}
+.tile{background:var(--surface);border:1px solid var(--hair);border-radius:var(--radius);padding:14px 16px}
+.tile .lab{font-size:12px;color:var(--ink-2);margin-bottom:6px}
+.tile .val{font-size:27px;font-weight:600;line-height:1.15;letter-spacing:-.02em}
+.tile .hint{font-size:12px;color:var(--ink-3);margin-top:4px}
+
+/* ---------- 主体两栏 ---------- */
+.cols{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(0,1fr);gap:16px;align-items:start}
+@media(max-width:1000px){.cols{grid-template-columns:1fr}}
+.card{background:var(--surface);border:1px solid var(--hair);border-radius:var(--radius);padding:16px 18px;margin-bottom:16px}
+.card h2{font-size:14px;font-weight:620;margin:0 0 3px}
+.card .cap{font-size:12px;color:var(--ink-3);margin-bottom:14px}
+
+/* ---------- 树 ---------- */
+.grp{border-top:1px solid var(--grid);padding:12px 0 4px}
+.grp:first-of-type{border-top:0;padding-top:2px}
+.grp-head{display:flex;align-items:center;gap:10px;cursor:pointer;user-select:none}
+.caret{width:14px;color:var(--ink-3);flex:none;transition:transform .15s;font-size:11px}
+.grp.collapsed .caret{transform:rotate(-90deg)}
+.grp-name{font-weight:600;font-size:14px}
+.grp-desc{font-size:12px;color:var(--ink-3);margin:2px 0 0 24px}
+.grp.collapsed .grp-desc{display:none}
+.grp-meter{flex:1;height:5px;background:var(--grid);border-radius:3px;overflow:hidden;max-width:160px;margin-left:auto}
+.grp-meter i{display:block;height:100%;background:var(--series);border-radius:3px}
+.grp-count{font-size:12px;color:var(--ink-2);flex:none;font-variant-numeric:tabular-nums}
+
+.branch{margin:8px 0 4px 6px;padding-left:18px;border-left:1px solid var(--grid)}
+.grp.collapsed .branch{display:none}
+.node{position:relative;padding:7px 0 7px 16px;border-radius:6px}
+.node::before{
+  content:"";position:absolute;left:-1px;top:18px;width:13px;height:1px;background:var(--grid);
+}
+.node:hover{background:var(--wash)}
+.node-row{display:flex;align-items:flex-start;gap:9px;cursor:pointer}
+.node-name{flex:1;min-width:0}
+.node-note{font-size:12.5px;color:var(--ink-2);margin-top:3px}
+.node-ev{font-size:11.5px;color:var(--ink-3);margin-top:3px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;word-break:break-all}
+.node.done .node-name>span:first-child{color:var(--ink-3)}
+
+/* 状态标签：图标 + 文字，永不只靠颜色 */
+.chip{
+  display:inline-flex;align-items:center;gap:5px;flex:none;
+  font-size:11.5px;padding:2px 8px;border-radius:20px;
+  border:1px solid var(--hair);background:var(--surface);white-space:nowrap;
+}
+.chip .dot{width:8px;height:8px;border-radius:50%;flex:none}
+.s-done  .dot{background:var(--good)}
+.s-doing .dot{background:var(--warn)}
+.s-hold  .dot{background:var(--serious)}
+.s-block .dot{background:var(--crit)}
+.s-todo  .dot{background:var(--axis)}
+.pri{font-size:11px;padding:2px 7px;border-radius:5px;border:1px solid var(--hair);flex:none;color:var(--ink-2);font-weight:600}
+.pri.P0{color:var(--crit);border-color:var(--crit)}
+.pri.P1{color:var(--ink-1)}
+
+/* 编辑区 */
+.edit{display:none;margin:10px 0 4px;padding:12px;background:var(--wash);border-radius:8px}
+.node.open .edit{display:block}
+.edit-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:9px}
+.edit label{font-size:12px;color:var(--ink-2);display:flex;flex-direction:column;gap:4px}
+.edit select,.edit textarea,.edit input{
+  background:var(--surface);border:1px solid var(--hair);border-radius:6px;padding:6px 8px;font-size:13px;
+}
+.edit textarea{width:100%;min-height:56px;resize:vertical;line-height:1.5}
+.edit .acts{display:flex;gap:8px;align-items:center;margin-top:4px}
+.del{color:var(--crit);background:none;border:none;cursor:pointer;font-size:12px;padding:4px 6px}
+.saved{font-size:12px;color:var(--good);opacity:0;transition:opacity .2s}
+.saved.show{opacity:1}
+
+/* ---------- 工时图 ---------- */
+.chart{position:relative;height:150px;margin:6px 0 2px;display:flex;align-items:flex-end;gap:2px}
+.gridlines{position:absolute;inset:0;pointer-events:none}
+.gridlines i{position:absolute;left:0;right:0;height:1px;background:var(--grid)}
+.bar{flex:1;min-width:0;position:relative;height:100%;display:flex;align-items:flex-end;cursor:default}
+.bar i{display:block;width:100%;background:var(--series);border-radius:4px 4px 0 0;min-height:2px}
+.bar:hover i{filter:brightness(1.12)}
+.xaxis{display:flex;gap:2px;margin-top:6px;border-top:1px solid var(--axis);padding-top:5px}
+.xaxis span{flex:1;min-width:0;font-size:10px;color:var(--ink-3);text-align:center;font-variant-numeric:tabular-nums;overflow:hidden}
+.tip{
+  position:absolute;pointer-events:none;background:var(--ink-1);color:var(--surface);
+  padding:6px 9px;border-radius:6px;font-size:12px;white-space:nowrap;opacity:0;transition:opacity .1s;
+  transform:translate(-50%,-100%);z-index:5;line-height:1.45;
+}
+.tip.show{opacity:1}
+.ymax{font-size:11px;color:var(--ink-3);margin-bottom:2px;font-variant-numeric:tabular-nums}
+
+/* 表格视图 */
+table{width:100%;border-collapse:collapse;font-size:12.5px}
+th,td{text-align:left;padding:5px 8px;border-bottom:1px solid var(--grid)}
+th{color:var(--ink-2);font-weight:600;font-size:11.5px}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+
+/* ---------- 健康 / 列表 ---------- */
+.issue{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--grid)}
+.issue:last-child{border-bottom:0}
+.issue .ic{flex:none;width:18px;text-align:center;font-size:13px;line-height:1.5}
+.issue.critical .ic{color:var(--crit)}
+.issue.warning .ic{color:var(--serious)}
+.issue .t{font-size:13px;font-weight:560}
+.issue .d{font-size:12px;color:var(--ink-2);margin-top:2px}
+.issue .m{font-size:11.5px;color:var(--ink-3);font-variant-numeric:tabular-nums;flex:none}
+
+.li{padding:8px 0;border-bottom:1px solid var(--grid);font-size:12.5px}
+.li:last-child{border-bottom:0}
+.li .meta{color:var(--ink-3);font-size:11.5px;margin-top:2px;font-variant-numeric:tabular-nums}
+.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:11.5px}
+.empty{color:var(--ink-3);font-size:12.5px;padding:8px 0}
+.err{color:var(--crit);font-size:12.5px}
+.addbar{margin-top:12px;display:flex;gap:8px}
+.addbar input{flex:1;background:var(--surface);border:1px solid var(--hair);border-radius:6px;padding:7px 10px}
+
+/* ---------- 协作线 ---------- */
+.lanes{display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:14px}
+.lane{border:1px solid var(--hair);border-radius:9px;padding:13px 15px;background:var(--wash)}
+.lane-top{display:flex;align-items:center;gap:9px;margin-bottom:7px;flex-wrap:wrap}
+.lane-nm{font-size:14px;font-weight:620;flex:none}
+.lane-top .chip{max-width:100%;min-width:0}
+.lane-top .chip .t{overflow:hidden;text-overflow:ellipsis}
+.lane-meta{font-size:11.5px;color:var(--ink-3);margin-left:auto;font-variant-numeric:tabular-nums;white-space:nowrap}
+.lane-note{font-size:12px;color:var(--ink-2);line-height:1.5;margin:-2px 0 4px}
+.lane-lab{font-size:11.5px;color:var(--ink-3);margin:9px 0 2px}
+.lane-txt{font-size:13px;line-height:1.55}
+.lane-ask{border-left:3px solid var(--crit);padding:7px 11px;margin-top:9px;border-radius:0 6px 6px 0;background:var(--surface)}
+.lane-ask .h{font-size:11.5px;color:var(--crit);font-weight:600;margin-bottom:3px}
+.lane-ask .i{font-size:12.5px;line-height:1.5}
+.s-run .dot{background:var(--warn)}
+.s-next .dot{background:var(--axis)}
+.s-wait .dot{background:var(--crit)}
+.s-stuck .dot{background:var(--crit)}
+.s-none .dot{background:var(--axis)}
+
+/* ---------- 能力地图 ---------- */
+.seg{display:inline-flex;border:1px solid var(--hair);border-radius:8px;overflow:hidden;background:var(--surface)}
+.seg button{border:0;background:none;padding:6px 14px;cursor:pointer;color:var(--ink-2);font:inherit}
+.seg button.on{background:var(--ink-1);color:var(--surface)}
+.seg button+button{border-left:1px solid var(--hair)}
+
+.capbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-bottom:12px}
+.capbar input{flex:1;min-width:150px;background:var(--surface);border:1px solid var(--hair);border-radius:6px;padding:6px 10px}
+
+.capgrp{border-top:1px solid var(--grid);padding:11px 0 4px}
+.capgrp:first-of-type{border-top:0;padding-top:0}
+.capgrp-head{display:flex;align-items:baseline;gap:9px;cursor:pointer;user-select:none}
+.capgrp.collapsed .capgrp-body{display:none}
+.capgrp .caret{width:13px;font-size:11px;color:var(--ink-3);transition:transform .15s;flex:none}
+.capgrp.collapsed .caret{transform:rotate(-90deg)}
+.capgrp-name{font-weight:600;font-size:13.5px}
+.capgrp-sub{font-size:12px;color:var(--ink-3);flex:1;min-width:0}
+.capgrp-n{font-size:12px;color:var(--ink-2);font-variant-numeric:tabular-nums;flex:none}
+.capgrp-body{margin:6px 0 2px 4px;padding-left:14px;border-left:1px solid var(--grid)}
+
+.cap-row{display:flex;align-items:center;gap:9px;padding:6px 8px 6px 9px;border-radius:7px;cursor:pointer;border-left:3px solid transparent}
+.cap-row:hover{background:var(--wash)}
+.cap-row.sel{background:var(--wash);border-left-color:var(--series)}
+.cap-txt{flex:1;min-width:0}
+.cap-nm{font-size:13.5px}
+.cap-plain{font-size:12px;color:var(--ink-3);margin-top:1px}
+.cap-key{font-size:10.5px;color:var(--ink-3);font-family:ui-monospace,SFMono-Regular,Menlo,monospace;flex:none}
+
+/* 优先级：色块 + 文字，两重编码 */
+.tier{display:inline-flex;align-items:center;gap:5px;flex:none;font-size:11.5px;padding:2px 8px;
+      border-radius:20px;border:1px solid var(--hair);background:var(--surface);white-space:nowrap}
+.tier .sq{width:8px;height:8px;border-radius:2px;flex:none}
+.t4 .sq{background:var(--crit)}
+.t3 .sq{background:var(--serious)}
+.t2 .sq{background:var(--series)}
+.t1 .sq{background:var(--axis)}
+.t0 .sq{background:var(--good);border-radius:50%}
+.num{font-size:11px;color:var(--ink-3);font-variant-numeric:tabular-nums;flex:none}
+.risk{font-size:11px;color:var(--serious);flex:none}
+
+/* 链路 */
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:2px 0 4px}
+.pill{font-size:12px;padding:3px 9px;border-radius:6px;border:1px solid var(--hair);background:var(--wash);white-space:nowrap}
+.pill.hd{background:var(--ink-1);color:var(--surface);border-color:var(--ink-1)}
+.arw{color:var(--ink-3);font-size:12px}
+.dl{font-size:11.5px;color:var(--ink-3);margin:12px 0 5px;letter-spacing:.02em}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tag{font-size:12px;padding:3px 9px;border-radius:6px;border:1px solid var(--hair);background:var(--surface);cursor:pointer}
+.tag:hover{background:var(--wash)}
+.tag.me{background:var(--ink-1);color:var(--surface);border-color:var(--ink-1);cursor:default}
+
+/* 资源占用条 */
+.lk{padding:9px 0;border-bottom:1px solid var(--grid);cursor:pointer}
+.lk:last-child{border-bottom:0}
+.lk:hover{background:var(--wash)}
+.lk-top{display:flex;align-items:baseline;gap:8px}
+.lk-nm{font-size:13px;font-weight:560}
+.lk-d{font-size:12px;color:var(--ink-3);flex:1;min-width:0}
+.lk-n{font-size:12px;color:var(--ink-2);font-variant-numeric:tabular-nums}
+.lk-bar{height:5px;background:var(--grid);border-radius:3px;margin-top:6px;overflow:hidden}
+.lk-bar i{display:block;height:100%;background:var(--series);border-radius:3px}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div>
+    <h1 id="title">项目进度看板</h1>
+    <div class="sub" id="subtitle"></div>
+  </div>
+  <div class="tools">
+    <span class="seg">
+      <button id="v-progress" class="on">进度</button>
+      <button id="v-caps">能力</button>
+    </span>
+    <span id="progress-tools" style="display:contents">
+    <button class="btn" id="f-all">全部</button>
+    <button class="btn" id="f-open">只看未完成</button>
+    <button class="btn" id="f-p0">只看最紧急</button>
+    </span>
+    <button class="btn" id="refresh">刷新</button>
+    <button class="btn" id="theme">切换深浅色</button>
+  </div>
+</header>
+
+<div class="tiles" id="tiles"></div>
+
+<div class="card" id="lanecard" style="margin-bottom:16px">
+  <h2>各线最新进展</h2>
+  <div class="cap">自动读 docs/协作/&lt;线&gt;/CC反馈.md —— CC 每轮收尾一写，这里就变，不用手动同步。</div>
+  <div class="lanes" id="lanes"></div>
+</div>
+
+<div class="cols" id="progressview">
+  <div>
+    <div class="card">
+      <h2>任务树</h2>
+      <div class="cap">点任意一条可以改状态、优先级和备注 —— 改完自动保存，你不需要打开任何文件。</div>
+      <div id="tree"></div>
+      <div class="addbar">
+        <input id="newgrp" placeholder="新增一个分组（比如「下个版本想做的」）">
+        <button class="btn" id="addgrp">添加</button>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="card">
+      <h2>AI 干活的量</h2>
+      <div class="cap">按代码提交记录推算的每日投入，属于估算值。</div>
+      <div id="hours"></div>
+    </div>
+
+    <div class="card">
+      <h2>工程健康检查</h2>
+      <div class="cap">自动扫描出来的隐患，不用人工维护。</div>
+      <div id="health"></div>
+    </div>
+
+    <div class="card">
+      <h2>最近验收</h2>
+      <div class="cap">来自 acceptance/reports/latest-summary.md。</div>
+      <div id="acc"></div>
+    </div>
+
+    <div class="card">
+      <h2>最近改动</h2>
+      <div class="cap">最新的代码提交。</div>
+      <div id="commits"></div>
+    </div>
+
+    <div class="card">
+      <h2>待决事项</h2>
+      <div class="cap">程序自己记下来的、需要人来定的问题。</div>
+      <div id="decisions"></div>
+    </div>
+  </div>
+</div>
+
+
+<div id="capview" hidden>
+  <div class="tiles" id="cap-tiles"></div>
+  <div class="cols">
+    <div>
+      <div class="card">
+        <h2>林夏会做的事</h2>
+        <div class="cap">从代码里直接读出来的，不是手写的清单 —— 代码里加了新能力，这里自动就有。点任意一条看它跟别的能力什么关系。</div>
+        <div class="capbar">
+          <span class="seg">
+            <button data-g="domain" class="on">按用途分</button>
+            <button data-g="tier">按优先级分</button>
+            <button data-g="lock">按抢占的资源分</button>
+          </span>
+          <input id="cap-q" placeholder="搜一下，比如「箱子」「挖」「armor」">
+        </div>
+        <div id="cap-tree"></div>
+        <div class="stamp" id="cap-stamp" style="margin-top:12px"></div>
+      </div>
+    </div>
+    <div>
+      <div class="card" id="cap-detail"></div>
+      <div class="card">
+        <h2>六种资源，谁都要抢</h2>
+        <div class="cap">同一时间一种资源只能给一个任务用。抢同一样东西的能力，就没法同时做 —— 这是能力之间最硬的一层联系。</div>
+        <div id="cap-locks"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="stamp" id="stamp" style="margin-top:8px"></div>
+</div>
+
+<div class="tip" id="tip"></div>
+
+<script>
+const STATUS = {
+  todo:  { label:'待办',   icon:'○', cls:'s-todo'  },
+  doing: { label:'进行中', icon:'◐', cls:'s-doing' },
+  done:  { label:'已完成', icon:'✓', cls:'s-done'  },
+  hold:  { label:'搁置',   icon:'⏸', cls:'s-hold'  },
+  blocked:{label:'阻塞',   icon:'✕', cls:'s-block' },
+};
+const PRIS = ['P0','P1','P2','—'];
+
+let snap = null, board = null, filter = 'all';
+const $ = s => document.querySelector(s);
+const esc = s => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+
+/* ---------------- 载入 ---------------- */
+async function load(force){
+  const [s, b] = await Promise.all([
+    fetch('/api/snapshot' + (force ? '?force=1' : '')).then(r => r.json()),
+    fetch('/api/board').then(r => r.json()),
+  ]);
+  snap = s; board = b;
+  document.title = (b.title || '项目') + ' · 进度看板';
+  $('#title').textContent = b.title || '项目进度看板';
+  $('#subtitle').textContent = b.subtitle || '';
+  renderTiles(); renderLanes(); renderTree(); renderHours(); renderHealth(); renderAcc(); renderCommits(); renderDecisions();
+  $('#stamp').textContent = '数据生成于 ' + new Date(s.generatedAt).toLocaleString('zh-CN') +
+    ' · 监控目录 ' + s.projectRoot;
+}
+
+/* ---------------- 概览 ---------------- */
+function allTasks(){ return (board.groups || []).flatMap(g => g.tasks || []); }
+
+function renderTiles(){
+  if (!board || !snap) return;
+  const ts = allTasks();
+  const done = ts.filter(t => t.status === 'done').length;
+  const open = ts.filter(t => t.status !== 'done').length;
+  const p0 = ts.filter(t => t.status !== 'done' && t.priority === 'P0').length;
+  const pct = ts.length ? Math.round(done / ts.length * 100) : 0;
+
+  const g = snap.git || {};
+  const acc = snap.acceptance || {};
+  const c = acc.counts || {};
+  const accTxt = acc.ok ? `${c.PASS || 0} 通过 / ${(c.FAIL || 0) + (c.ERROR || 0)} 失败` : '暂无';
+  const accHint = acc.ok
+    ? (acc.reportAgeDays > 7 ? `报告已是 ${acc.reportAgeDays} 天前的，需重跑` : '报告较新')
+    : '还没跑过验收';
+
+  const idle = g.lastCommit ? Math.floor((Date.now() - g.lastCommit.ts) / 86400000) : null;
+
+  $('#tiles').innerHTML = [
+    tile('整体完成度', pct + '%', `${done} 项完成 · ${open} 项待办`),
+    tile('最紧急待办', p0, p0 ? '这些挡着别的活' : '当前没有卡点'),
+    tile('等你拍板', (snap.lanes && snap.lanes.pendingDecisions) || 0,
+         (snap.lanes && snap.lanes.pendingDecisions) ? '在「各线最新进展」里' : '暂时没有'),
+    tile('最近一次验收', accTxt, accHint),
+    tile('累计投入', (g.totalHours != null ? g.totalHours : '—') + ' 小时',
+         g.totalCommits != null ? `${g.totalCommits} 次提交 · ${g.sessions || 0} 段工作` : '读不到提交记录'),
+    tile('距上次动工', idle == null ? '—' : idle + ' 天',
+         g.lastCommit ? '最后：' + trunc(g.lastCommit.subject, 26) : ''),
+  ].join('');
+}
+function tile(lab, val, hint){
+  return `<div class="tile"><div class="lab">${esc(lab)}</div><div class="val">${esc(val)}</div><div class="hint">${esc(hint)}</div></div>`;
+}
+const trunc = (s, n) => { s = String(s || ''); return s.length > n ? s.slice(0, n) + '…' : s; };
+
+/* ---------------- 协作线 ---------------- */
+const LANE_STATUS = {
+  '卡住了':      { cls:'s-stuck', icon:'✕' },
+  '等老板拍板':  { cls:'s-wait',  icon:'!' },
+  '进行中':      { cls:'s-run',   icon:'◐' },
+  '待开工':      { cls:'s-next',  icon:'▷' },
+  '已完成':      { cls:'s-done',  icon:'✓' },
+};
+
+function renderLanes(){
+  const d = snap.lanes || {};
+  const list = d.lanes || [];
+  const host = $('#lanes');
+  // 在能力页时不要把它掀出来
+  const onCaps = !$('#capview').hidden;
+  if (!list.length || onCaps){ $('#lanecard').hidden = true; if (!list.length) return; }
+  else $('#lanecard').hidden = false;
+  host.innerHTML = list.map(l => {
+    const label = l.started ? l.status : '还没交回';
+    const st = l.started ? (LANE_STATUS[l.status] || { cls:'s-none', icon:'○' }) : { cls:'s-none', icon:'○' };
+    return `<div class="lane">
+      <div class="lane-top">
+        <span class="lane-nm">${esc(l.lane)}</span>
+        <span class="chip ${st.cls}" ${l.statusNote ? `title="${esc(l.statusNote)}"` : ''}><span class="dot"></span><span class="t">${st.icon} ${esc(label)}</span></span>
+        <span class="lane-meta">第 ${esc(l.round || '?')} 轮${l.date && l.date !== '—' ? ' · ' + esc(l.date) : ''}</span>
+      </div>
+      ${l.statusNote ? `<div class="lane-note">${esc(l.statusNote)}</div>` : ''}
+      ${l.taskTitle ? `<div class="lane-lab">正在做</div><div class="lane-txt">${esc(l.taskTitle)}</div>` : ''}
+      ${l.conclusion ? `<div class="lane-lab">上一轮结论</div><div class="lane-txt">${esc(l.conclusion)}</div>` : ''}
+      ${(l.decisions || []).length ? `<div class="lane-ask">
+        <div class="h">需要你拍板</div>
+        ${l.decisions.map(x => `<div class="i">${esc(x)}</div>`).join('')}
+      </div>` : ''}
+      ${l.branch ? `<div class="lane-lab mono" style="margin-bottom:0">${esc(l.branch)}</div>` : ''}
+    </div>`;
+  }).join('');
+}
+
+/* ---------------- 任务树 ---------------- */
+function visible(t){
+  if (filter === 'open') return t.status !== 'done';
+  if (filter === 'p0') return t.status !== 'done' && t.priority === 'P0';
+  return true;
+}
+
+function renderTree(){
+  const host = $('#tree');
+  if (!board) return;
+  host.innerHTML = (board.groups || []).map(g => {
+    const tasks = (g.tasks || []).filter(visible);
+    const total = (g.tasks || []).length;
+    const done = (g.tasks || []).filter(t => t.status === 'done').length;
+    const pct = total ? Math.round(done / total * 100) : 0;
+    if (!tasks.length && filter !== 'all') return '';
+    return `
+    <div class="grp${g.collapsed ? ' collapsed' : ''}" data-g="${esc(g.id)}">
+      <div class="grp-head js-toggle">
+        <span class="caret">▼</span>
+        <span class="grp-name">${esc(g.name)}</span>
+        <span class="grp-meter"><i style="width:${pct}%"></i></span>
+        <span class="grp-count">${done}/${total}</span>
+      </div>
+      ${g.desc ? `<div class="grp-desc">${esc(g.desc)}</div>` : ''}
+      <div class="branch">${tasks.map(t => nodeHtml(g, t)).join('')}
+        <div class="addbar" style="margin:6px 0 2px">
+          <input class="js-newtask" data-g="${esc(g.id)}" placeholder="在「${esc(g.name)}」里加一条">
+        </div>
+      </div>
+    </div>`;
+  }).join('') || '<div class="empty">还没有任务，在下面加一个分组开始。</div>';
+
+  host.querySelectorAll('.js-toggle').forEach(el =>
+    el.onclick = () => el.closest('.grp').classList.toggle('collapsed'));
+  host.querySelectorAll('.js-open').forEach(el =>
+    el.onclick = e => { if (!e.target.closest('.edit')) el.closest('.node').classList.toggle('open'); });
+  host.querySelectorAll('.js-field').forEach(el =>
+    el.onchange = () => patch(el.dataset.g, el.dataset.t, el.dataset.k, el.value, el));
+  host.querySelectorAll('.js-del').forEach(el =>
+    el.onclick = () => { if (confirm('删掉这一条？')) removeTask(el.dataset.g, el.dataset.t); });
+  host.querySelectorAll('.js-newtask').forEach(el =>
+    el.onkeydown = e => { if (e.key === 'Enter' && el.value.trim()) addTask(el.dataset.g, el.value.trim()); });
+}
+
+function nodeHtml(g, t){
+  const st = STATUS[t.status] || STATUS.todo;
+  return `
+  <div class="node ${t.status === 'done' ? 'done' : ''}" data-t="${esc(t.id)}">
+    <div class="node-row js-open">
+      <span class="chip ${st.cls}"><span class="dot"></span>${st.icon} ${st.label}</span>
+      ${t.priority && t.priority !== '—' ? `<span class="pri ${esc(t.priority)}">${esc(t.priority)}</span>` : ''}
+      <span class="node-name">
+        <span>${esc(t.name)}</span>
+        ${t.note ? `<div class="node-note">${esc(t.note)}</div>` : ''}
+        ${t.evidence ? `<div class="node-ev">依据：${esc(t.evidence)}</div>` : ''}
+      </span>
+    </div>
+    <div class="edit">
+      <div class="edit-row">
+        <label>状态
+          <select class="js-field" data-g="${esc(g.id)}" data-t="${esc(t.id)}" data-k="status">
+            ${Object.entries(STATUS).map(([k, v]) =>
+              `<option value="${k}" ${t.status === k ? 'selected' : ''}>${v.icon} ${v.label}</option>`).join('')}
+          </select>
+        </label>
+        <label>优先级
+          <select class="js-field" data-g="${esc(g.id)}" data-t="${esc(t.id)}" data-k="priority">
+            ${PRIS.map(p => `<option ${t.priority === p ? 'selected' : ''}>${p}</option>`).join('')}
+          </select>
+        </label>
+        <label style="flex:1;min-width:200px">名称
+          <input class="js-field" data-g="${esc(g.id)}" data-t="${esc(t.id)}" data-k="name" value="${esc(t.name)}">
+        </label>
+      </div>
+      <label style="display:block">备注（用你自己的话写，随便记）
+        <textarea class="js-field" data-g="${esc(g.id)}" data-t="${esc(t.id)}" data-k="note">${esc(t.note)}</textarea>
+      </label>
+      <div class="acts">
+        <span class="saved">已保存</span>
+        <button class="del js-del" data-g="${esc(g.id)}" data-t="${esc(t.id)}" style="margin-left:auto">删除这条</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+/* ---------------- 保存 ---------------- */
+async function push(){
+  const r = await fetch('/api/board', {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(board),
+  });
+  if (!r.ok) alert('保存失败：' + (await r.text()));
+  return r.ok;
+}
+function findTask(gid, tid){
+  const g = (board.groups || []).find(x => x.id === gid);
+  return [g, g && (g.tasks || []).find(x => x.id === tid)];
+}
+async function patch(gid, tid, key, val, el){
+  const [, t] = findTask(gid, tid);
+  if (!t) return;
+  t[key] = val;
+  if (await push()){
+    const flag = el.closest('.edit').querySelector('.saved');
+    flag.classList.add('show'); setTimeout(() => flag.classList.remove('show'), 1200);
+    renderTiles();
+    if (key === 'status' || key === 'priority'){
+      const open = [...document.querySelectorAll('.node.open')].map(n => n.dataset.t);
+      const coll = [...document.querySelectorAll('.grp.collapsed')].map(n => n.dataset.g);
+      renderTree();
+      open.forEach(id => document.querySelector(`.node[data-t="${CSS.escape(id)}"]`)?.classList.add('open'));
+      coll.forEach(id => document.querySelector(`.grp[data-g="${CSS.escape(id)}"]`)?.classList.add('collapsed'));
+    }
+  }
+}
+async function addTask(gid, name){
+  const g = (board.groups || []).find(x => x.id === gid);
+  if (!g) return;
+  (g.tasks = g.tasks || []).push({
+    id: 't-' + Date.now().toString(36), name, status: 'todo', priority: 'P2', note: '', evidence: '手动添加',
+  });
+  if (await push()){ renderTree(); renderTiles(); }
+}
+async function removeTask(gid, tid){
+  const g = (board.groups || []).find(x => x.id === gid);
+  if (!g) return;
+  g.tasks = (g.tasks || []).filter(t => t.id !== tid);
+  if (await push()){ renderTree(); renderTiles(); }
+}
+
+/* ---------------- 工时图 ---------------- */
+function renderHours(){
+  const g = snap.git || {};
+  const host = $('#hours');
+  if (!g.ok || !(g.daily || []).length){
+    host.innerHTML = `<div class="err">读不到代码提交记录。${esc(g.__error || '可能这台机器上没装 git，或项目还没有提交历史。')}</div>`;
+    return;
+  }
+  const data = g.daily.slice(-24);
+  const max = Math.max(...data.map(d => d.hours), 1);
+  const labelEvery = Math.ceil(data.length / 6);
+
+  host.innerHTML = `
+    <div class="ymax">最高 ${max.toFixed(1)} 小时／天</div>
+    <div class="chart" id="chart">
+      <div class="gridlines">
+        <i style="top:0"></i><i style="top:33%"></i><i style="top:66%"></i>
+      </div>
+      ${data.map((d, i) => `
+        <div class="bar" data-i="${i}">
+          <i style="height:${Math.max(2, d.hours / max * 100)}%"></i>
+        </div>`).join('')}
+    </div>
+    <div class="xaxis">
+      ${data.map((d, i) => `<span>${i % labelEvery === 0 ? esc(d.day.slice(5)) : ''}</span>`).join('')}
+    </div>
+    <div style="margin-top:12px">
+      <button class="btn" id="tbl-toggle" style="font-size:12px;padding:4px 10px">看表格</button>
+      <div id="tbl" hidden style="margin-top:10px;max-height:220px;overflow:auto">
+        <table>
+          <thead><tr><th>日期</th><th class="num">小时</th><th class="num">提交</th><th class="num">新增行</th></tr></thead>
+          <tbody>${data.slice().reverse().map(d =>
+            `<tr><td>${esc(d.day)}</td><td class="num">${d.hours.toFixed(1)}</td><td class="num">${d.commits}</td><td class="num">${d.added}</td></tr>`
+          ).join('')}</tbody>
+        </table>
+      </div>
+    </div>`;
+
+  const tip = $('#tip');
+  host.querySelectorAll('.bar').forEach(bar => {
+    const d = data[+bar.dataset.i];
+    bar.onmouseenter = () => {
+      tip.innerHTML = `${esc(d.day)}<br>约 ${d.hours.toFixed(1)} 小时 · ${d.commits} 次提交<br>新增 ${d.added} 行 / 删除 ${d.removed} 行`;
+      const r = bar.getBoundingClientRect();
+      tip.style.left = (r.left + r.width / 2 + scrollX) + 'px';
+      tip.style.top = (r.top + scrollY - 8) + 'px';
+      tip.classList.add('show');
+    };
+    bar.onmouseleave = () => tip.classList.remove('show');
+  });
+  $('#tbl-toggle').onclick = () => {
+    const t = $('#tbl'); t.hidden = !t.hidden;
+    $('#tbl-toggle').textContent = t.hidden ? '看表格' : '收起表格';
+  };
+}
+
+/* ---------------- 健康 ---------------- */
+function renderHealth(){
+  const h = snap.health || {};
+  const items = h.issues || [];
+  $('#health').innerHTML = items.length ? items.map(i => `
+    <div class="issue ${esc(i.level)}">
+      <span class="ic">${i.level === 'critical' ? '▲' : '●'}</span>
+      <span style="flex:1"><span class="t">${esc(i.title)}</span><div class="d">${esc(i.detail)}</div>${i.note ? `<div class="d" style="opacity:.75">备注：${esc(i.note)}</div>` : ''}</span>
+      <span class="m">${esc(i.metric || '')}</span>
+    </div>`).join('')
+    : '<div class="empty">没扫出问题。</div>';
+}
+
+/* ---------------- 验收 ---------------- */
+function renderAcc(){
+  const a = snap.acceptance || {};
+  if (!a.ok){ $('#acc').innerHTML = `<div class="empty">${esc(a.reason || '暂无数据')}</div>`; return; }
+  const map = { PASS:['s-done','✓','通过'], FAIL:['s-block','✕','失败'], BLOCKED:['s-hold','⏸','被挡住'], ERROR:['s-block','✕','出错'] };
+  $('#acc').innerHTML = `
+    <div class="li" style="border:0;padding-top:0">
+      <b>${esc(a.result || '')}</b>
+      <div class="meta">跑于 ${esc((a.finishedAt || '').slice(0, 10))} · ${a.reportAgeDays} 天前</div>
+    </div>
+    ${(a.cases || []).map(c => {
+      const k = (c.judgment || '').toUpperCase();
+      const [cls, ic, txt] = map[k] || ['s-todo','○', k || '未知'];
+      return `<div class="li">
+        <span class="chip ${cls}"><span class="dot"></span>${ic} ${txt}</span>
+        <div style="margin-top:5px">${esc(c.name)}</div>
+        ${c.reason ? `<div class="meta mono">${esc(c.reason)}</div>` : ''}
+      </div>`;
+    }).join('')}`;
+}
+
+/* ---------------- 提交 ---------------- */
+function renderCommits(){
+  const g = snap.git || {};
+  if (!g.ok){ $('#commits').innerHTML = '<div class="empty">读不到提交记录。</div>'; return; }
+  const warn = g.dirtyCount > 0
+    ? `<div class="issue warning" style="border-bottom:1px solid var(--grid)">
+         <span class="ic">●</span>
+         <span style="flex:1"><span class="t">有 ${g.dirtyCount} 处改动还没存档</span>
+         <div class="d">分支 ${esc(g.branch)}。这些修改还没提交，出问题时退不回去。</div></span>
+       </div>` : '';
+  $('#commits').innerHTML = warn + (g.recent || []).slice(0, 8).map(c => `
+    <div class="li">
+      ${esc(c.subject)}
+      <div class="meta mono">${esc(c.hash)} · ${new Date(c.ts).toLocaleDateString('zh-CN')} · ${c.files} 个文件 +${c.added}/-${c.removed}</div>
+    </div>`).join('');
+}
+
+/* ---------------- 待决 ---------------- */
+function renderDecisions(){
+  const d = snap.decisions || {};
+  $('#decisions').innerHTML = (d.items || []).length
+    ? d.items.map(i => `<div class="li">${esc(i.text)}${i.date ? `<div class="meta">${esc(i.date)}</div>` : ''}</div>`).join('')
+    : '<div class="empty">没有待决事项。</div>';
+}
+
+/* ---------------- 交互 ---------------- */
+function setFilter(f){
+  filter = f;
+  ['all','open','p0'].forEach(k => $('#f-' + k).classList.toggle('on', k === f));
+  renderTree();
+}
+$('#f-all').onclick  = () => setFilter('all');
+$('#f-open').onclick = () => setFilter('open');
+$('#f-p0').onclick   = () => setFilter('p0');
+$('#refresh').onclick = async () => {
+  const b = $('#refresh'), old = b.textContent;
+  b.textContent = '刷新中…'; b.disabled = true;
+  try { await Promise.all([load(true), $('#capview').hidden ? null : showCaps(true)]); b.textContent = '已刷新'; }
+  catch (_) { b.textContent = '刷新失败'; }
+  setTimeout(() => { b.textContent = old; b.disabled = false; }, 1200);
+};
+$('#theme').onclick = () => {
+  const cur = document.documentElement.getAttribute('data-theme');
+  const next = cur === 'dark' ? 'light' : cur === 'light' ? '' : 'dark';
+  if (next) document.documentElement.setAttribute('data-theme', next);
+  else document.documentElement.removeAttribute('data-theme');
+  try { localStorage.setItem('theme', next); } catch (_) {}
+};
+$('#addgrp').onclick = async () => {
+  const v = $('#newgrp').value.trim(); if (!v) return;
+  (board.groups = board.groups || []).push({ id: 'g-' + Date.now().toString(36), name: v, desc: '', tasks: [] });
+  if (await push()){ $('#newgrp').value = ''; renderTree(); }
+};
+
+
+/* ======================= 能力地图 ======================= */
+const TIER_UI = {
+  CRITICAL: { cls:'t4', name:'保命级', why:'任何时候都能打断别的活' },
+  HIGH:     { cls:'t3', name:'优先',   why:'排在常规任务前面' },
+  MEDIUM:   { cls:'t2', name:'常规',   why:'按先来后到排队' },
+  LOW:      { cls:'t1', name:'闲时',   why:'谁都能把它挤下去' },
+};
+const INSTANT_UI = { cls:'t0', name:'即时', why:'不排队，问完直接答' };
+const tierUI = c => c.tier ? TIER_UI[c.tier] : INSTANT_UI;
+
+let capData=null, capSel=null, capGroupBy='domain', capQuery='';
+
+async function loadCaps(force){
+  if (capData && !force) return capData;
+  capData = await fetch('/api/capabilities' + (force?'?force=1':'')).then(r=>r.json());
+  return capData;
+}
+
+function capHit(c){
+  if (!capQuery) return true;
+  const q = capQuery.toLowerCase();
+  return (c.name+c.plain+c.domain+c.key+(c.intent||'')+(c.taskType||'')).toLowerCase().includes(q);
+}
+const capSort = (a,b) => (b.tierRank-a.tierRank) || ((b.enqueuePriority||0)-(a.enqueuePriority||0)) || a.name.localeCompare(b.name,'zh');
+
+function capGroups(){
+  const list = capData.caps.filter(capHit);
+  if (capGroupBy === 'tier'){
+    const order = [['CRITICAL','出了事先干这个'],['HIGH','比常规活重要'],['MEDIUM','日常主力'],['LOW','不着急'],[null,'张嘴就答，不占用身体']];
+    return order.map(([t,sub]) => ({
+      key:String(t), name: t?TIER_UI[t].name:INSTANT_UI.name, sub,
+      items:list.filter(c=>c.tier===t).sort(capSort),
+    })).filter(g=>g.items.length);
+  }
+  if (capGroupBy === 'lock'){
+    const gs = Object.entries(capData.lockLabels||{}).map(([k,v]) => ({
+      key:k, name:v[0], sub:v[1], items:list.filter(c=>(c.locks||[]).includes(k)).sort(capSort),
+    }));
+    gs.push({ key:'none', name:'不占资源', sub:'随时能插进来，不会打断别的活',
+              items:list.filter(c=>!(c.locks||[]).length).sort(capSort) });
+    return gs.filter(g=>g.items.length);
+  }
+  return (capData.domains||[]).map(d => ({
+    key:d, name:d, sub:'', items:list.filter(c=>c.domain===d).sort(capSort),
+  })).filter(g=>g.items.length);
+}
+
+function renderCapTiles(){
+  const n = capData.counts || {};
+  $('#cap-tiles').innerHTML = [
+    tile('会做的事', n.total ?? '—', `落到 ${n.tasks ?? '—'} 套任务代码上`),
+    tile('保命级', n.critical ?? '—', '这些能打断正在做的任何事'),
+    tile('会真动身体', n.dangerous ?? '—', '要走路、挖、打、放方块，做错了世界会变'),
+    tile('张嘴就答', n.instant ?? '—', '只查询不动手，不占资源'),
+  ].join('');
+}
+
+function renderCapTree(){
+  const host = $('#cap-tree');
+  const gs = capGroups();
+  if (!gs.length){ host.innerHTML = '<div class="empty">没有匹配的能力。</div>'; return; }
+  host.innerHTML = gs.map(g => `
+    <div class="capgrp" data-g="${esc(g.key)}">
+      <div class="capgrp-head js-cg">
+        <span class="caret">▼</span>
+        <span class="capgrp-name">${esc(g.name)}</span>
+        <span class="capgrp-sub">${esc(g.sub||'')}</span>
+        <span class="capgrp-n">${g.items.length}</span>
+      </div>
+      <div class="capgrp-body">${g.items.map(capRow).join('')}</div>
+    </div>`).join('');
+
+  host.querySelectorAll('.js-cg').forEach(el =>
+    el.onclick = () => el.closest('.capgrp').classList.toggle('collapsed'));
+  host.querySelectorAll('.cap-row').forEach(el =>
+    el.onclick = () => selectCap(el.dataset.k));
+}
+
+function capRow(c){
+  const t = tierUI(c);
+  return `<div class="cap-row ${capSel===c.key?'sel':''}" data-k="${esc(c.key)}">
+    <span class="tier ${t.cls}"><span class="sq"></span>${esc(t.name)}</span>
+    <span class="cap-txt">
+      <span class="cap-nm">${esc(c.name)}</span>${c.dangerous?' <span class="risk">▲</span>':''}
+      <div class="cap-plain">${esc(c.plain || c.key)}</div>
+    </span>
+    ${c.enqueuePriorityLabel ? `<span class="num">${esc(c.enqueuePriorityLabel)}</span>` : ''}
+  </div>`;
+}
+
+function selectCap(key){
+  capSel = key;
+  history.replaceState(null, '', '#caps=' + encodeURIComponent(key));
+  document.querySelectorAll('.cap-row').forEach(el => el.classList.toggle('sel', el.dataset.k === key));
+  renderCapDetail();
+  const el = document.querySelector(`.cap-row[data-k="${CSS.escape(key)}"]`);
+  if (el) el.scrollIntoView({ block:'nearest' });
+}
+
+function renderCapDetail(){
+  const host = $('#cap-detail');
+  const c = capData.caps.find(x => x.key === capSel);
+  if (!c){
+    host.innerHTML = `<h2>选一条看细节</h2>
+      <div class="cap">左边点任意一条能力，这里会显示：它从你一句话走到身体动作要经过哪几步、优先级多高、
+      跟哪些能力共用同一套代码、以及跟哪些能力抢资源没法同时做。</div>
+      <div class="dl">图例</div>
+      <div class="tags">
+        ${['CRITICAL','HIGH','MEDIUM','LOW'].map(k=>`<span class="tier ${TIER_UI[k].cls}"><span class="sq"></span>${TIER_UI[k].name}</span>`).join('')}
+        <span class="tier t0"><span class="sq"></span>即时</span>
+      </div>
+      <div class="cap" style="margin-top:10px">决定谁能打断谁的只有档位。右边小字是入队序号，作用比看上去小得多 ——
+      点开任意一条能力有说明。<span class="risk">▲</span> 表示这条会真动身体。</div>`;
+    return;
+  }
+  const siblings = (c.taskType ? (capData.byTask[c.taskType] || []) : []);
+  const nameOf = k => (capData.caps.find(x=>x.key===k) || {}).name || k;
+  const t = tierUI(c);
+
+  host.innerHTML = `
+    <h2>${esc(c.name)} <span class="cap-key">${esc(c.key)}</span></h2>
+    <div class="cap">${esc(c.plain)}</div>
+
+    <div class="dl">怎么走到动作的</div>
+    <div class="chain">
+      <span class="pill">你说一句话</span><span class="arw">→</span>
+      <span class="pill">听懂成 ${esc(c.intent || '—')}</span><span class="arw">→</span>
+      ${c.taskType
+        ? `<span class="pill hd">${esc(c.taskType)}</span><span class="arw">→</span>
+           <span class="pill">${(c.locks||[]).length ? (c.locks||[]).map(l=>esc(capData.lockLabels[l][0])).join(' + ') : '不占资源'}</span>`
+        : `<span class="pill hd">直接回答</span>`}
+    </div>
+    ${c.taskFile ? `<div class="cap">代码在 tasks/${esc(c.taskFile)}</div>` : ''}
+
+    <div class="dl">优先级</div>
+    <div class="chain">
+      <span class="tier ${t.cls}"><span class="sq"></span>${esc(t.name)}</span>
+      <span class="cap" style="margin:0">${esc(t.why)}</span>
+    </div>
+    ${c.enqueuePriorityLabel ? `<div class="cap">入队序号 ${esc(c.enqueuePriorityLabel)} —— 注意：这个数字只在「排队的活」和「被暂停的活」之间比大小，
+      不参与「谁能打断谁」，同一档位内排队一律先来后到。</div>` : ''}
+    ${c.dangerous ? '<div class="cap"><span class="risk">▲</span> 这条会真的动身体，出错会改变游戏世界，所以要更高的确信度才会执行。</div>' : ''}
+
+    ${siblings.length > 1 ? `
+    <div class="dl">跟这些是同一套代码 —— 改一个，全都受影响</div>
+    <div class="tags">${siblings.map(k =>
+      `<span class="tag ${k===c.key?'me':'js-jump'}" data-k="${esc(k)}">${esc(nameOf(k))}</span>`).join('')}</div>` : ''}
+
+    <div class="dl">要抢的资源 —— 抢同一样的就没法同时做</div>
+    ${(c.locks||[]).length ? (c.locks||[]).map(l => {
+      const others = (capData.byLock[l]||[]).filter(k => k !== c.key);
+      const eg = others.slice(0,3).map(nameOf).join('、');
+      return `<div class="lk js-golock" data-k="${esc(l)}">
+        <div class="lk-top">
+          <span class="lk-nm">${esc(capData.lockLabels[l][0])}</span>
+          <span class="lk-d">${others.length ? `另外 ${others.length} 条也要抢${eg ? '，比如 ' + esc(eg) : ''}` : '只有它一个用，不会跟谁抢'}</span>
+          <span class="lk-n">${others.length ? '看这一组 →' : ''}</span>
+        </div>
+      </div>`;
+    }).join('') : '<div class="cap">不占任何资源，什么时候插进来都行，也不会打断别人。</div>'}
+  `;
+  host.querySelectorAll('.js-golock').forEach(el => el.onclick = () => gotoLockGroup(el.dataset.k));
+
+}
+
+function renderCapLocks(){
+  const entries = Object.entries(capData.lockLabels || {});
+  const max = Math.max(1, ...entries.map(([k]) => (capData.byLock[k]||[]).length));
+  $('#cap-locks').innerHTML = entries.map(([k, v]) => {
+    const n = (capData.byLock[k]||[]).length;
+    return `<div class="lk js-lk" data-k="${esc(k)}">
+      <div class="lk-top">
+        <span class="lk-nm">${esc(v[0])}</span>
+        <span class="lk-d">${esc(v[1])}</span>
+        <span class="lk-n">${n} 条能力</span>
+      </div>
+      <div class="lk-bar"><i style="width:${Math.round(n/max*100)}%"></i></div>
+    </div>`;
+  }).join('');
+  $('#cap-locks').querySelectorAll('.js-lk').forEach(el => el.onclick = () => gotoLockGroup(el.dataset.k));
+}
+
+function gotoLockGroup(lock){
+  capGroupBy = 'lock'; capQuery = ''; $('#cap-q').value = '';
+  document.querySelectorAll('.capbar .seg button').forEach(b => b.classList.toggle('on', b.dataset.g === 'lock'));
+  renderCapTree();
+  const g = document.querySelector(`.capgrp[data-g="${CSS.escape(lock)}"]`);
+  if (g) g.scrollIntoView({ behavior:'smooth', block:'start' });
+}
+
+async function showCaps(force){
+  try {
+    await loadCaps(force);
+    if (!capData || capData.ok === false) throw new Error(capData && capData.__error || '读不到能力清单');
+    const want = (location.hash.match(/^#caps=(.+)$/) || [])[1];
+    if (want && capData.caps.some(c => c.key === decodeURIComponent(want))) capSel = decodeURIComponent(want);
+    renderCapTiles(); renderCapTree(); renderCapDetail(); renderCapLocks();
+    $('#cap-stamp').textContent = '代码扫描于 ' + new Date().toLocaleTimeString('zh-CN') +
+      ' · 能力清单只有改了代码才会变，点刷新看到内容一样是正常的';
+  } catch (e){
+    $('#cap-tree').innerHTML = '<div class="err">读不到能力清单：' + esc(e.message) + '</div>';
+  }
+}
+
+function setView(v){
+  const caps = v === 'caps';
+  $('#v-caps').classList.toggle('on', caps);
+  $('#v-progress').classList.toggle('on', !caps);
+  $('#tiles').hidden = caps;
+  $('#lanecard').hidden = caps;
+  $('#progressview').hidden = caps;
+  $('#progress-tools').style.display = caps ? 'none' : 'contents';
+  $('#capview').hidden = !caps;
+  if (caps) showCaps(false);
+}
+$('#v-caps').onclick = () => { location.hash = '#caps'; setView('caps'); };
+$('#v-progress').onclick = () => { history.replaceState(null, '', location.pathname); setView('progress'); };
+const isCapHash = () => /^#caps(=|$)/.test(location.hash);
+addEventListener('hashchange', () => setView(isCapHash() ? 'caps' : 'progress'));
+document.querySelectorAll('.capbar .seg button').forEach(b => b.onclick = () => {
+  capGroupBy = b.dataset.g;
+  document.querySelectorAll('.capbar .seg button').forEach(x => x.classList.toggle('on', x === b));
+  renderCapTree();
+});
+$('#cap-q').oninput = e => { capQuery = e.target.value.trim(); renderCapTree(); };
+
+try { const t = localStorage.getItem('theme'); if (t) document.documentElement.setAttribute('data-theme', t); } catch (_) {}
+setFilter('all');
+if (/^#caps(=|$)/.test(location.hash)) setView('caps');
+load(false).catch(e => { $('#tree').innerHTML = '<div class="err">载入失败：' + esc(e.message) + '</div>'; });
+setInterval(() => load(false).catch(() => {}), 60000);
+</script>
+</body>
+</html>

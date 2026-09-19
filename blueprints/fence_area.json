@@ -1,0 +1,24 @@
+{
+  "name": "fence_area",
+  "description": "Small fenced perimeter",
+  "metadata": { "displayName": "围墙", "zhNames": ["围墙", "围栏"] },
+  "origin": { "x": 0, "y": 0, "z": 0 },
+  "blocks": [
+    { "x": 0, "y": 0, "z": 0, "type": "oak_fence" },
+    { "x": 1, "y": 0, "z": 0, "type": "oak_fence" },
+    { "x": 2, "y": 0, "z": 0, "type": "oak_fence" },
+    { "x": 3, "y": 0, "z": 0, "type": "oak_fence" },
+    { "x": 4, "y": 0, "z": 0, "type": "oak_fence" },
+    { "x": 0, "y": 0, "z": 1, "type": "oak_fence" },
+    { "x": 4, "y": 0, "z": 1, "type": "oak_fence" },
+    { "x": 0, "y": 0, "z": 2, "type": "oak_fence" },
+    { "x": 4, "y": 0, "z": 2, "type": "oak_fence" },
+    { "x": 0, "y": 0, "z": 3, "type": "oak_fence" },
+    { "x": 4, "y": 0, "z": 3, "type": "oak_fence" },
+    { "x": 0, "y": 0, "z": 4, "type": "oak_fence" },
+    { "x": 1, "y": 0, "z": 4, "type": "oak_fence" },
+    { "x": 2, "y": 0, "z": 4, "type": "oak_fence" },
+    { "x": 3, "y": 0, "z": 4, "type": "oak_fence" },
+    { "x": 4, "y": 0, "z": 4, "type": "oak_fence" }
+  ]
+}

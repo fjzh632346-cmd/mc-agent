@@ -1,0 +1,14 @@
+{
+  "name": "chest_area",
+  "description": "Small storage pad",
+  "metadata": { "displayName": "箱子区", "zhNames": ["箱子区", "储物区"] },
+  "origin": { "x": 0, "y": 0, "z": 0 },
+  "blocks": [
+    { "x": 0, "y": 0, "z": 0, "type": "oak_planks" },
+    { "x": 1, "y": 0, "z": 0, "type": "oak_planks" },
+    { "x": 0, "y": 0, "z": 1, "type": "oak_planks" },
+    { "x": 1, "y": 0, "z": 1, "type": "oak_planks" },
+    { "x": 0, "y": 1, "z": 0, "type": "chest" },
+    { "x": 1, "y": 1, "z": 0, "type": "chest" }
+  ]
+}

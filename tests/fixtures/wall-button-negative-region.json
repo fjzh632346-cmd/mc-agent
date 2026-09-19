@@ -1,0 +1,72 @@
+{
+  "description": "Hand-made fixture: a litematic-style region with a negative z size, holding one wall button hung on the block behind it. Pins that the importer mirrors the button's position and facing exactly once, and that materialization lands it on the expected world target.",
+  "region": {
+    "name": "Unnamed",
+    "size": {
+      "x": 6,
+      "y": 5,
+      "z": -8
+    },
+    "position": {
+      "x": 0,
+      "y": 0,
+      "z": 7
+    }
+  },
+  "button": {
+    "localPosition": {
+      "x": 3,
+      "y": 1,
+      "z": 5
+    },
+    "rawPosition": {
+      "x": 3,
+      "y": 1,
+      "z": 2
+    },
+    "blockId": "dark_oak_button",
+    "properties": {
+      "face": "wall",
+      "powered": "false",
+      "facing": "south"
+    }
+  },
+  "support": {
+    "localPosition": {
+      "x": 3,
+      "y": 1,
+      "z": 4
+    },
+    "rawPosition": {
+      "x": 3,
+      "y": 1,
+      "z": 3
+    },
+    "blockId": "stone"
+  },
+  "northNeighbor": {
+    "rawPosition": {
+      "x": 3,
+      "y": 1,
+      "z": 1
+    },
+    "blockId": "air"
+  },
+  "placement": {
+    "origin": {
+      "x": 100,
+      "y": 64,
+      "z": 200
+    },
+    "rotationY": 0,
+    "mirror": {
+      "x": false,
+      "z": false
+    },
+    "target": {
+      "x": 103,
+      "y": 65,
+      "z": 202
+    }
+  }
+}

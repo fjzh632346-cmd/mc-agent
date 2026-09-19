@@ -1,0 +1,19 @@
+{
+  "projectName": "Minecraft AI Companion",
+  "projectType": "game-agent",
+  "primaryLanguage": "javascript",
+  "sourceRoot": ".",
+  "currentProjectAdapter": "minecraft",
+  "principles": [
+    "Keep the workflow reusable across projects.",
+    "Keep project-specific startup, observation, and assertions inside adapters and acceptance cases.",
+    "Use real acceptance tests against the running product whenever possible.",
+    "Do not bypass the product architecture to make acceptance pass."
+  ],
+  "roles": {
+    "human": "Idea owner, result inspector, final decision maker.",
+    "chatgpt": "Requirement clarifier, architect, generalization reviewer, acceptance analyst, context manager.",
+    "codex": "Code reader, implementer, script runner, fixer.",
+    "acceptanceSystem": "Runs real tests and writes standardized evidence reports."
+  }
+}
