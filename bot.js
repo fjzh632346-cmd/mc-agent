@@ -305,6 +305,14 @@ const connection = createConnectionSupervisorFromEnv(process.env, { createBot, l
 let bot = null
 connection.on('bot', (nextBot, info) => {
   bot = nextBot
+  const origWrite = bot._client.write.bind(bot._client)
+  bot._client.write = (name, packet) => {
+    const result = origWrite(name, packet)
+    if (name === 'position' || name === 'position_look' || name === 'look' || name === 'flying') {
+      try { origWrite('tick_end', {}) } catch (err) {}
+    }
+    return result
+  }
   registerBotEventHandlers(nextBot)
   if (info.reconnect) console.log(`[连接] 第 ${info.generation - 1} 次重连：正在连接 ...`)
 })
